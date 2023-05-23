@@ -4,6 +4,18 @@ import {
 } from "../globalContext.js";
 import makeToast from "../toast.js";
 
+let hints = []
+const hintContainer = document.getElementById("game-panel__hints")
+
+function toggleHints(message) {
+    hintContainer.innerHTML = message
+    hintContainer.classList.add("active")
+
+    setTimeout(() => {
+        hintContainer.classList.remove("active")
+    }, 3000);
+}
+
 const scrambleLetters = document.getElementById("game-panel__scramble-letters");
 const gamePanelTextDivs = document.getElementById(
     "game-panel__text-container"
@@ -31,7 +43,8 @@ function isCurrentWordSameAsAddedWord(currentWord, addedWord) {
     return currentWord === addedWord.join("");
 }
 
-export default function addScrambleLetters(wordObject) {
+export default function addScrambleLetters(wordObject, quizHints) {
+    hints = quizHints
     let currentWord = wordObject.word;
     let addedWord = [];
     const shuffledString = currentWord
@@ -53,7 +66,7 @@ export default function addScrambleLetters(wordObject) {
 
                     if (addedWord.length === currentWord.length) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            makeToast("Current word is the same as the added word!");
+                            makeToast("Render Passed!");
                             IndexStatus.incrementIndex();
                             
                             if (IndexStatus.isBound() === false) {
@@ -64,7 +77,9 @@ export default function addScrambleLetters(wordObject) {
                                 makeToast("Render Congratulations!")
                             }
                         } else {
-                            makeToast("Wrong word");
+                            if (hints) {
+                                toggleHints(hints[Math.floor(Math.random() * hints.length)])
+                            }
                             clearGamePanelTextContainer();
                             addedWord.length = 0;
                         }

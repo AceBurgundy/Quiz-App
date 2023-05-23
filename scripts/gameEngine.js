@@ -23,12 +23,13 @@ export default function runGame() {
             quizData = jsonData.quiz;
             IndexStatus.setLimit(quizData.length)
             const word = quizData[IndexStatus.getCurrentIndex()];
+            const hints = [...quizData[IndexStatus.getCurrentIndex()].hints]
 
             gamePanelText.innerHTML = ""
             scrambleLetters.innerHTML = ""
 
             addLetterContainers(word);
-            addScrambleLetters(word);
+            addScrambleLetters(word, hints);
             })
         .catch((error) => {
             console.error("Error fetching JSON data:", error);
