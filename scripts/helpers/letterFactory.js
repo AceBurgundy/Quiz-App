@@ -125,7 +125,7 @@ export default function addScrambleLetters(wordObject, quizHints) {
 
                     if (addedWord.length === currentWord.length) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            makeToast("Current word is the same as the added word!");
+                            makeToast("Render Passed!");
                             IndexStatus.incrementIndex();
                             
                             if (IndexStatus.isBound() === false) {
@@ -136,7 +136,9 @@ export default function addScrambleLetters(wordObject, quizHints) {
                                 makeToast("Render Congratulations!")
                             }
                         } else {
-                            makeToast("Wrong word");
+                            if (hints) {
+                                toggleHints(hints[Math.floor(Math.random() * hints.length)])
+                            }
                             clearGamePanelTextContainer();
                             addedWord.length = 0;
                         }
