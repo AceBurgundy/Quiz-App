@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('./notifications.css');
+@import url('./name.css');
+@import url('./game.css');
+
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+ }
+
+*::before,
+*::after {
+      box-sizing: border-box;
+}
+
+:root {
+    --primary: #596aff;
+    --text: white;
+    --card: #dedede;
+    --default-font-size: clamp(1rem, 1.1rem, 2rem);
+    --colorShadeA: rgb(106, 163, 137);
+    --colorShadeB: rgb(121, 186, 156);
+    --colorShadeC: rgb(150, 232, 195);
+    --colorShadeD: rgb(187, 232, 211);
+    --colorShadeE: rgb(205, 255, 232);
+}
+

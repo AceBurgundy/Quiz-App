@@ -1,0 +1,32 @@
+{
+    "quiz": [
+      {
+        "word": "code",
+        "definition": "A set of instructions or statements to perform a specific task in a computer program.",
+        "hints": [
+          "It is an essential part of programming.",
+          "Developers write it.",
+          "It is executed by computers."
+        ]
+      },
+      {
+        "word": "organize",
+        "definition": "The process of arranging elements in a particular order or sequence.",
+        "hints": [
+          "It is important for organizing data.",
+          "It helps in achieving efficiency.",
+          "It involves putting things in a structured manner."
+        ]
+      },
+      {
+        "word": "test",
+        "definition": "A small piece of code that performs a specific task and can be reused.",
+        "hints": [
+          "It promotes code reusability.",
+          "It encapsulates functionality.",
+          "It is often named after its purpose."
+        ]
+      }
+    ]
+}
+  
