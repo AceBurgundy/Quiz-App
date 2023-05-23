@@ -71,8 +71,8 @@
     align-items: center;
     width: 6vw;
     height: 6vw;
-    min-width: 3rem;
-    min-height: 3rem;
+    min-width: 4rem;
+    min-height: 4rem;
     border: 2px solid black;
 }   
 
@@ -92,8 +92,8 @@
     overflow: visible;
     width: 6vw;
     height: 6vw;
-    min-width: 3rem;
-    min-height: 3rem;
+    min-width: 4rem;
+    min-height: 4rem;
     border: 2px solid var(--colorShadeA);
     border-radius: 20px;
     background: var(--text);
