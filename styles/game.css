@@ -105,6 +105,7 @@
     .game-panel__text,
     .game-panel__scramble-letters-letter {
         font-size: 1.5rem;
+        border-radius: 5px;
     }
 }
 
@@ -112,6 +113,7 @@
     .game-panel__text,
     .game-panel__scramble-letters-letter {
         font-size: 1.5rem;
+        border-radius: 5px;
     }
 }
 
