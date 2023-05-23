@@ -11,7 +11,7 @@
 .message {
     padding: 0.5rem 1rem;
     font-size: var(--default-font-size);
-    color: var(--text);
+    color: var(--darkText);
     background-color: var(--primary);
     border-radius: 15px;
     width: fit-content;

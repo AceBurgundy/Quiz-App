@@ -1,11 +1,10 @@
 #name-prompt {
-    height: 100vh;
+    height: 0vh;
     width: 100vw;
     position: fixed;
     left: 50%;
     top: 0%;
     transform: translateX(-50%);
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,17 +17,18 @@
     width: 90%;
     max-width: 500px;
     padding: 1rem;
-    border-radius: 10px;
     border: none;
     font-size: var(--default-font-size);
 }
-
+    
 #name-input {
-    background-color: var(--card);
+    border-bottom: 2px solid var(--text);
+    color: var(--text);
 }
 
 #submit-name {
-    background-color: var(--primary);
-    color: var(--text);
+    background-color: var(--accent);
+    color: var(--darkText);
     cursor: pointer;
+    
 }

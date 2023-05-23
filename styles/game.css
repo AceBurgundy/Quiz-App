@@ -1,11 +1,11 @@
 #game-panel {
-    height: 100vh;
+    height: 0vh;
     width: 100vw;
     position: fixed;
     left: 50%;
     top: 0%;
     transform: translateX(-50%);
-    background-color: red;
+    background-color: var(--background);
     transition: 500ms ease;
     display: flex;
     align-items: center;
@@ -20,8 +20,7 @@
     justify-content: space-evenly;
     height: 100vh;
     width: 90%;
-    max-width: 500px;
-    background-color: white;
+    max-width: 80%;
     position: relative;
 }
 
@@ -33,6 +32,11 @@
     width: 90%;
     top: 0%;
     padding: 1rem 0 0 0;
+}
+
+#game-panel__navigation-skip-div {
+    border: none;
+    background-color: inherit;
     cursor: pointer;
 }
 
@@ -53,24 +57,24 @@
     overflow: visible;
 }
 
-#game-panel__text-container {
-    flex-wrap: wrap;
+#game-panel__scramble-letters {
+    gap: 1rem;
 }
 
-#game-panel__scramble-letters > * {
-    flex: 1 1 7vw;
+#game-panel__text-container {
+    flex-wrap: wrap;
 }
 
 .game-panel__text {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6vh;
-    height: 6vh;
+    width: 6vw;
+    height: 6vw;
     min-width: 3rem;
     min-height: 3rem;
     border: 2px solid black;
-}
+}   
 
 .game-panel__text,
 .game-panel__scramble-letters-letter {
@@ -80,19 +84,19 @@
     outline: none;
     vertical-align: middle;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5vw;
     color: var(--colorShadeA);
     font-weight: 700;
     text-transform: uppercase;
     font-family: inherit;
     overflow: visible;
-    width: 6vh;
-    height: 6vh;
+    width: 6vw;
+    height: 6vw;
     min-width: 3rem;
     min-height: 3rem;
     border: 2px solid var(--colorShadeA);
-    border-radius: 1em;
-    background: var(--colorShadeE);
+    border-radius: 20px;
+    background: var(--text);
     transform-style: preserve-3d;
     transition: all 175ms cubic-bezier(0, 0, 1, 1);
 }

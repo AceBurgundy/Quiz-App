@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('./notifications.css');
 @import url('./name.css');
 @import url('./game.css');
+@import url('./menu.css');
 
 * {
     overflow: hidden;
@@ -16,15 +18,23 @@
       box-sizing: border-box;
 }
 
-:root {
-    --primary: #596aff;
-    --text: white;
-    --card: #dedede;
-    --default-font-size: clamp(1rem, 1.1rem, 2rem);
-    --colorShadeA: rgb(106, 163, 137);
-    --colorShadeB: rgb(121, 186, 156);
-    --colorShadeC: rgb(150, 232, 195);
-    --colorShadeD: rgb(187, 232, 211);
-    --colorShadeE: rgb(205, 255, 232);
+* {
+    background-color: var(--background);
+    color: var(--text);
 }
 
+:root {
+    --primary: rgb(150, 232, 195);
+    --background: #2c2c2c; 
+    --text: white;
+    --darkText: rgb(29, 59, 46);
+    --card: #dedede;
+    --accent: #4ECCA3;
+    --shadow: #232931;
+    --default-font-size: clamp(1rem, 1.1rem, 2rem);
+    --colorShadeA: hsl(160, 34%, 56%);
+    --colorShadeB: hsl(159, 43%, 64%);
+    --colorShadeC: hsl(159, 63%, 76%);
+    --colorShadeD: hsl(159, 62%, 84%);
+    --colorShadeE: hsl(159, 100%, 92%);
+}
