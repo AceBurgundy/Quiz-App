@@ -8,15 +8,25 @@ export default function showPassedPanel(congratulations = false) {
     const stopButton = document.getElementById("achieved-panel__buttons-stop");
     const nextButton = document.getElementById("achieved-panel__buttons-next");
     const scorePlaceholder = document.getElementById("achieved-panel__text-score")
+    
+    const nameInput = document.getElementById("name-input")
+    IndexStatus.setPlayerName(nameInput.value)
 
+    const playerName = IndexStatus.getPlayerName()
+    
     IndexStatus.incrementIndex();
     panel.classList.add("active");
 
     if (IndexStatus.isBound() || congratulations) {
-        panelText.textContent = "Congratulations!";
+
+        const won = IndexStatus.getScore() === IndexStatus.getLimit()
+        const score = won ? "win" : "lose"
+        playSound(score)
+
+        panelText.textContent = won ? `Congratulations! ${playerName}` : `It's ok ${playerName}`;
         stopButton.textContent = "Menu";
         nextButton.textContent = "Save";
-        scorePlaceholder.textContent = `Score: ${IndexStatus.getScore()}`;
+        scorePlaceholder.textContent = `Score: ${IndexStatus.getScore()}/${IndexStatus.getLimit()}`;
         
         stopButton.onclick = function() {
             document.getElementById("game-panel").style.height = "0vh";
@@ -32,6 +42,8 @@ export default function showPassedPanel(congratulations = false) {
 
         return;
     } else {
+
+        playSound("wordCorrect")
         panelText.textContent = "You got it right!";
         stopButton.textContent = "Nahh";
         nextButton.textContent = "Next";

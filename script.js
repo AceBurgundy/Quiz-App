@@ -2,8 +2,6 @@ import makeToast from "./scripts/toast.js";
 import runGame from "./scripts/gameEngine.js";
 import { IndexStatus } from "./scripts/globalContext.js";
 
-let playerName = ""
-
 document.getElementById("submit-name").addEventListener("click", () => {
     const nameInput = document.getElementById("name-input")
     if (nameInput.value != "") {
