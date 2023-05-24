@@ -1,4 +1,5 @@
 export default function toggleHints(hints, currentHint, hintContainer) {
+    
     let hint = hints[Math.floor(Math.random() * hints.length)];
 
     while (hint === currentHint) {
