@@ -4,18 +4,76 @@ import {
 } from "../globalContext.js";
 import makeToast from "../toast.js";
 
+let currentHint = ""
 let hints = []
 const hintContainer = document.getElementById("game-panel__hints")
 
-function toggleHints(message) {
-    hintContainer.innerHTML = message
+function toggleHints() {
+
+    let hint = hints[Math.floor(Math.random() * hints.length)]
+
+    while (hint === currentHint) {
+        hint = hints[Math.floor(Math.random() * hints.length)]
+    }
+
+    currentHint = hint
+
+    hintContainer.innerHTML = hint
     hintContainer.classList.add("active")
 
     setTimeout(() => {
         hintContainer.classList.remove("active")
-    }, 3000);
+    }, 2500);
 }
 
+function showPassedPanel(congratulations = false) {
+    
+    const panel = document.getElementById("achieved-panel")
+    const panelText = document.getElementById("achieved-panel__text")
+    const stopButton = document.getElementById("achieved-panel__buttons-stop")
+    const nextButton = document.getElementById("achieved-panel__buttons-next")
+    
+    IndexStatus.incrementIndex()
+    panel.classList.add("active")
+
+    if (IndexStatus.isBound() === true || congratulations) {
+        panelText.textContent = "Congratulations!"
+        stopButton.textContent = "Menu"
+        nextButton.textContent = "Save"
+        document.getElementById("achieved-panel__text-score").textContent = `Score: ${IndexStatus.getScore()}`
+        stopButton.onclick = function() {
+            document.getElementById("game-panel").style.height = "0vh";
+            document.getElementById("menu-panel").style.height = "100vh";
+            panel.classList.remove("active")
+        }
+    
+        nextButton.onclick = function() {
+            makeToast("toggle save")
+        }
+        return
+
+    } else {
+
+        panelText.textContent = "You got it right!"
+        stopButton.textContent = "Nahh"
+        nextButton.textContent = "Next"
+
+        stopButton.onclick = function() {
+            panel.classList.remove("active")
+            setTimeout(() => {
+                showPassedPanel(congratulations = true)
+            }, 250);
+        }
+    
+        nextButton.onclick = function() {
+            panel.classList.remove("active")
+            runGame()
+        }
+        return
+    }
+
+
+}
 const scrambleLetters = document.getElementById("game-panel__scramble-letters");
 const gamePanelTextDivs = document.getElementById(
     "game-panel__text-container"
@@ -66,19 +124,11 @@ export default function addScrambleLetters(wordObject, quizHints) {
 
                     if (addedWord.length === currentWord.length) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            makeToast("Render Passed!");
-                            IndexStatus.incrementIndex();
-                            
-                            if (IndexStatus.isBound() === false) {
-                                setTimeout(() => {
-                                    runGame();
-                                }, 1000);
-                            } else {
-                                makeToast("Render Congratulations!")
-                            }
+                            IndexStatus.incrementScore()
+                            showPassedPanel()
                         } else {
                             if (hints) {
-                                toggleHints(hints[Math.floor(Math.random() * hints.length)])
+                                toggleHints()
                             }
                             clearGamePanelTextContainer();
                             addedWord.length = 0;
@@ -125,19 +175,11 @@ export default function addScrambleLetters(wordObject, quizHints) {
 
                     if (addedWord.length === currentWord.length) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            makeToast("Render Passed!");
-                            IndexStatus.incrementIndex();
-                            
-                            if (IndexStatus.isBound() === false) {
-                                setTimeout(() => {
-                                    runGame();
-                                }, 1000);
-                            } else {
-                                makeToast("Render Congratulations!")
-                            }
+                            IndexStatus.incrementScore()
+                            showPassedPanel()
                         } else {
                             if (hints) {
-                                toggleHints(hints[Math.floor(Math.random() * hints.length)])
+                                toggleHints()
                             }
                             clearGamePanelTextContainer();
                             addedWord.length = 0;

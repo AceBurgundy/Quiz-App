@@ -4,6 +4,7 @@
 @import url('./name.css');
 @import url('./game.css');
 @import url('./menu.css');
+@import url("./word_correct.css");
 
 * {
     overflow: hidden;
@@ -28,7 +29,7 @@
     --background: #2c2c2c; 
     --text: white;
     --darkText: rgb(29, 59, 46);
-    --card: #dedede;
+    --card: #3f3f3f;
     --accent: #4ECCA3;
     --shadow: #232931;
     --default-font-size: clamp(1rem, 1.1rem, 2rem);

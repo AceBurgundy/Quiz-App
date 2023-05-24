@@ -2,9 +2,20 @@ export const IndexStatus = (() => {
     let currentIndex = 0;
     let limit = 0;
     let playerName = ""
+    let score = 0;
 
     const isAllowed = () => currentIndex <= limit;
-  
+    
+    const resetIndex = () => {
+      currentIndex = 0
+      score = 0
+      playerName = ""
+      limit = 0
+    };
+
+    const getScore = () => score
+    const incrementScore = () => score++
+
     const isBound = () => currentIndex === limit;
 
     const setLimit = (newLimit) => {
@@ -33,9 +44,12 @@ export const IndexStatus = (() => {
       isAllowed,
       setLimit,
       isBound,
+      resetIndex,
       setPlayerName,
+      incrementScore,
       getPlayerName,
       getCurrentIndex,
+      getScore,
       getLimit,
       incrementIndex,
     };

@@ -10,13 +10,13 @@ document.getElementById("submit-name").addEventListener("click", () => {
         IndexStatus.setPlayerName(nameInput.value)
         document.getElementById("name-prompt").style.height = "0vh"
         document.getElementById("game-panel").style.height = "100vh"
+        IndexStatus.resetIndex()
+        runGame()
         makeToast("Name added!");
     } else {
         makeToast("Name is required!");
     }
 })
-
-runGame()
 
 document.getElementById("game-panel__navigation-skip-div").addEventListener("click", () => {
     if (IndexStatus.isAllowed()) {

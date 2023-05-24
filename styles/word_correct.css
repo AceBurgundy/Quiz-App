@@ -1,0 +1,112 @@
+#achieved-panel {
+    width: 40%;
+    height: 30%;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 300%);
+    transition: 100ms ease-in-out;
+    z-index: 50;
+    background-color: var(--card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: visible;
+    transition: 250ms;
+}
+
+#achieved-panel > * {
+    width: 100%;
+    background-color: inherit;
+}
+
+#achieved-panel__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    overflow: visible;
+}
+
+.achieved-panel__buttons-button {
+    font-size: 1.5vw;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent);
+    box-shadow: 10px 10px var(--shadow);
+    transition: 250ms;
+}
+
+.achieved-panel__buttons-button:hover {
+    box-shadow: 0px 0px;
+    cursor: pointer;
+}
+
+#achieved-panel__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#achieved-panel__text-container  > * {
+    background-color: inherit;
+}
+
+#achieved-panel__text {
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+#achieved-panel__text-score {
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+#confetti {
+    width: 35rem;
+    position: absolute;
+    top: -110%;
+    left: 15%;
+    transform: translateX(-50%) rotate(-30deg);
+    background-color: transparent;
+}
+
+#achieved-panel.active {
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {    
+    #achieved-panel {
+        width: 90%;
+    }
+}
+
+@media screen and (orientation: portrait) {
+
+    .achieved-panel__buttons-button {
+        font-size: 1.5rem;
+    }
+    
+    #achieved-panel__text, #achieved-panel__text-score {
+        font-size: 1.8rem;
+    }
+
+    #confetti {
+        width: 100%;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1370px) and (max-height: 600px) {
+    
+    .achieved-panel__buttons-button {
+        font-size: 1.5rem;
+    }
+
+    #achieved-panel__text, #achieved-panel__text-score {
+        font-size: 1.8rem;
+    }
+
+    #confetti {
+        width: 100%;
+    }
+}
