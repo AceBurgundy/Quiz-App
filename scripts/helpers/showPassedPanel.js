@@ -7,6 +7,7 @@ export default function showPassedPanel(congratulations = false) {
     const panelText = document.getElementById("achieved-panel__text");
     const stopButton = document.getElementById("achieved-panel__buttons-stop");
     const nextButton = document.getElementById("achieved-panel__buttons-next");
+    const scorePlaceholder = document.getElementById("achieved-panel__text-score")
 
     IndexStatus.incrementIndex();
     panel.classList.add("active");
@@ -15,11 +16,13 @@ export default function showPassedPanel(congratulations = false) {
         panelText.textContent = "Congratulations!";
         stopButton.textContent = "Menu";
         nextButton.textContent = "Save";
-        document.getElementById("achieved-panel__text-score").textContent = `Score: ${IndexStatus.getScore()}`;
-
+        scorePlaceholder.textContent = `Score: ${IndexStatus.getScore()}`;
+        
         stopButton.onclick = function() {
             document.getElementById("game-panel").style.height = "0vh";
             document.getElementById("menu-panel").style.height = "100vh";
+            scorePlaceholder.textContent = ""
+            panelText.textContent = ""
             panel.classList.remove("active");
         };
 
