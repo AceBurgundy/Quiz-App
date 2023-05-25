@@ -3,7 +3,7 @@ import makeToast from "../toast.js";
 import { IndexStatus } from "../globalContext.js";
 
 export default function showPassedPanel(congratulations = false) {
-    const panelBackground = document.getElementbyId("background-panel");
+    const panelBackground = document.getElementbyId("background-cover");
     const panel = document.getElementById("achieved-panel");
     const panelText = document.getElementById("achieved-panel__text");
     const stopButton = document.getElementById("achieved-panel__buttons-stop");
