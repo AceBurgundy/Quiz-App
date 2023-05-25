@@ -3,6 +3,7 @@ import makeToast from "../toast.js";
 import { IndexStatus } from "../globalContext.js";
 
 export default function showPassedPanel(congratulations = false) {
+    const panelBackground = document.getElementbyId("background-panel");
     const panel = document.getElementById("achieved-panel");
     const panelText = document.getElementById("achieved-panel__text");
     const stopButton = document.getElementById("achieved-panel__buttons-stop");
@@ -16,6 +17,7 @@ export default function showPassedPanel(congratulations = false) {
     
     IndexStatus.incrementIndex();
     panel.classList.add("active");
+    panelBackground.classList.add("active")
 
     if (IndexStatus.isBound() || congratulations) {
 
@@ -34,6 +36,7 @@ export default function showPassedPanel(congratulations = false) {
             scorePlaceholder.textContent = ""
             panelText.textContent = ""
             panel.classList.remove("active");
+            panelBackground.classList.remove("active")
         };
 
         nextButton.onclick = function() {
@@ -41,6 +44,7 @@ export default function showPassedPanel(congratulations = false) {
         };
 
         return;
+
     } else {
 
         playSound("wordCorrect")
@@ -50,6 +54,7 @@ export default function showPassedPanel(congratulations = false) {
 
         stopButton.onclick = function() {
             panel.classList.remove("active");
+            panelBackground.classList.remove("active")
             setTimeout(() => {
                 showPassedPanel(true);
             }, 250);
@@ -57,9 +62,9 @@ export default function showPassedPanel(congratulations = false) {
 
         nextButton.onclick = function() {
             panel.classList.remove("active");
+            panelBackground.classList.remove("active")
             runGame();
         };
-
         return;
     }
 }
