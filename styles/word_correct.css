@@ -1,3 +1,20 @@
+#background-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 49;
+    background-color: var(--background);
+    transition: 250ms ease;
+    scale: 0;
+    backdrop-filter: blur(18px) saturate(200%);
+    -webkit-backdrop-filter: blur(18px) saturate(200%);
+}
+
+#background-panel.active {
+    scale: 1;
+}
+
 #achieved-panel {
     width: 40%;
     height: 30%;
