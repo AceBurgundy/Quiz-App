@@ -1,19 +1,12 @@
 #name-prompt {
-    height: 0vh;
-    width: 100vw;
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
-    transition: 500ms ease;
 }
 
-#name-input, #submit-name {
+#name-panel__input, #name-panel__submit-name {
     width: 90%;
     max-width: 500px;
     padding: 1rem;
@@ -21,12 +14,12 @@
     font-size: var(--default-font-size);
 }
     
-#name-input {
+#name-panel__input {
     border-bottom: 2px solid var(--text);
     color: var(--text);
 }
 
-#submit-name {
+#name-panel__submit-name {
     background-color: var(--accent);
     color: var(--darkText);
     cursor: pointer;

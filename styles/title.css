@@ -1,0 +1,77 @@
+#title-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    height: 100vh;
+}
+
+#title-panel__title {
+    /* font-family: "Lobster", cursive; */
+    font-family: "Poppins";
+    width: 100%;
+    color: var(--accent);
+    font-size: 15vw;
+    text-align: center;
+    cursor: pointer;
+    transition: 100ms ease;
+    text-shadow: 15px 15px var(--shadow);
+}
+
+#title-panel__title:hover {
+    text-shadow: 0px 0px var(--shadow);
+}
+
+#title-panel__buttons-proceed {
+    letter-spacing: 1rem;
+    padding: 3rem 4rem 3rem 4.5rem;
+    background-color: var(--accent);
+    box-shadow: 15px 15px var(--shadow);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 100ms ease;
+}
+
+#title-panel__buttons-proceed:hover {
+    box-shadow: 0px 0px var(--shadow);
+}
+
+#play-button {
+    width: 5rem;
+    fill: var(--shadow);
+    background-color: inherit;
+}
+
+@media screen and (orientation: portrait) {
+
+    #title-panel__title {
+        font-size: 5rem;
+    }
+
+    #title-panel__buttons-proceed {
+        padding: 2rem 3rem 2rem 2.5rem;
+        box-shadow: 10px 10px var(--shadow);
+        border-radius: 20px;
+    }
+
+    #play-button {
+        width: 3rem;
+    }
+    
+}
+
+@media screen and (orientation: landscape) and (max-width: 1370px) and (max-height: 600px) {
+
+    #title-panel__buttons-proceed {
+        padding: 1rem 2rem 1rem 1.5rem;
+        box-shadow: 5px 5px var(--shadow);
+        border-radius: 10px;
+    }
+
+    #play-button {
+        width: 2rem;
+    }
+    
+}

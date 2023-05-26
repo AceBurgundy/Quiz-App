@@ -1,56 +1,103 @@
+
 export const IndexStatus = (() => {
-    let currentIndex = 0;
-    let limit = 0;
-    let playerName = ""
-    let score = 0;
+  let currentIndex = 0;
+  let limit = 0;
+  let score = 0;
+  let playerName = document.getElementById("player-name").value
 
-    const isAllowed = () => currentIndex <= limit;
-    
-    const resetIndex = () => {
-      currentIndex = 0
-      score = 0
-      playerName = ""
-      limit = 0
-    };
+  const isAllowed = () => currentIndex <= limit >= 0;
 
-    const getScore = () => score
-    const incrementScore = () => score++
+  const resetIndex = () => {
+    currentIndex = 0;
+    score = 0;
+    limit = 0;
+  };
 
-    const isBound = () => currentIndex === limit;
+  const getScore = () => score;
+  const incrementScore = () => score++;
 
-    const setLimit = (newLimit) => {
-      if (typeof newLimit === "number") {
-        limit = newLimit;
-      }
-    };
-  
-    const setPlayerName = (newPlayerName) => {
-        playerName = newPlayerName
+  const isBound = () => currentIndex === limit;
+
+  const setLimit = (newLimit) => {
+    if (typeof newLimit === "number") {
+      limit = newLimit;
     }
+  };
 
-    const getPlayerName = () => playerName
+  const setPlayerName = (nameInput) => {
+    playerName = nameInput
+  };
 
-    const getLimit = () => limit;
+  const getPlayerName = () => playerName;
 
-    const getCurrentIndex = () => currentIndex;
-  
-    const incrementIndex = () => {
-      if (isAllowed()) {
-        currentIndex++;
-      }
+  const getLimit = () => limit;
+
+  const getCurrentIndex = () => currentIndex;
+
+  const incrementIndex = () => {
+    if (isAllowed()) {
+      currentIndex++;
+    }
+  };
+
+  const decrementIndex = () => {
+    if (isAllowed()) {
+      currentIndex--;
+    }
+  };
+
+  const saveData = () => {
+    const data = {
+      score: score.toString(),
+      playerName: playerName,
+      lastStoped: currentIndex,
+      numberOfItems: limit
     };
-  
-    return {
-      isAllowed,
-      setLimit,
-      isBound,
-      resetIndex,
-      setPlayerName,
-      incrementScore,
-      getPlayerName,
-      getCurrentIndex,
-      getScore,
-      getLimit,
-      incrementIndex,
-    };
-  })();
+    localStorage.setItem("userData", JSON.stringify(data));
+  };
+
+  const retrieveScore = () => {
+    const savedData = localStorage.getItem("userData");
+    if (savedData) {
+      const data = JSON.parse(savedData);
+      score = parseInt(data.score);
+      currentIndex = parseInt(data.lastStoped)
+      playerName = data.playerName
+      limit = data.numberOfItems
+
+      console.table(score, playerName, currentIndex, limit);
+    }
+  };
+
+  const resetData = () => {
+    playerName = "";
+    score = 0;
+    currentIndex = 0;
+    localStorage.removeItem("userData");
+  };
+
+  const initialize = () => {
+    retrieveScore();
+  };
+
+  return {
+    isAllowed,
+    setLimit,
+    isBound,
+    resetIndex,
+    setPlayerName,
+    incrementScore,
+    decrementIndex,
+    getPlayerName,
+    getCurrentIndex,
+    getScore,
+    getLimit,
+    incrementIndex,
+    saveData,
+    retrieveScore,
+    resetData,
+    initialize,
+  };
+})();
+
+IndexStatus.initialize();

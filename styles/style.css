@@ -3,6 +3,7 @@
 @import url('./notifications.css');
 @import url('./name.css');
 @import url('./game.css');
+@import url('./title.css');
 @import url('./menu.css');
 @import url("./word_correct.css");
 
@@ -25,18 +26,44 @@
 }
 
 :root {
-    --primary: #96e8c3;
+    --primary: #FBB635;
     --background: #2c2c2c; 
     --backgroundLight: #2c2c2c5d;
     --text: white;
     --darkText: rgb(29, 59, 46);
     --card: #3f3f3f;
-    --accent: #4ECCA3;
-    --shadow: #232931;
+    --accent: #FBB635;
+    --shadow: #EF3313;
     --default-font-size: clamp(1rem, 1.1rem, 2rem);
-    --colorShadeA: hsl(160, 34%, 56%);
-    --colorShadeB: hsl(159, 43%, 64%);
-    --colorShadeC: hsl(159, 63%, 76%);
-    --colorShadeD: hsl(159, 62%, 84%);
-    --colorShadeE: hsl(159, 100%, 92%);
+    --colorShadeA: hsl(39, 96%, 60%);
+    --colorShadeB: hsl(39, 43%, 64%);
+    --colorShadeC: hsl(39, 63%, 76%);
+    --colorShadeD: hsl(39, 62%, 84%);
+    --colorShadeE: hsl(39, 100%, 92%);
+}
+
+.page {
+    height: 0vh;
+    width: 100vw;
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%);
+    background-color: var(--background);
+    transition: 500ms ease;
+}
+
+.button-primary {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent);
+    box-shadow: 10px 10px var(--shadow);
+    transition: 250ms;
+    color: var(--darkText);
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    box-shadow: 0px 0px var(--accent);
 }

@@ -15,7 +15,7 @@ export default function addScrambleLetters(wordObject, quizHints) {
     const gamePanelTextDivs = document.getElementById("game-panel__text-container").children;
     let currentHint = "";
     let hints = quizHints;
-    let currentWord = wordObject.word;
+    let currentWord = wordObject.word.toLowerCase();
     let addedWord = [];
 
     const shuffledString = currentWord.split("").sort(() => Math.random() - 0.5).join("");
@@ -34,6 +34,7 @@ export default function addScrambleLetters(wordObject, quizHints) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
                             IndexStatus.incrementScore();
                             showPassedPanel();
+                            IndexStatus.saveData()
                         } else {
                             playSound("wrong")
                             hints && toggleHints(hints, currentHint, hintContainer)
@@ -83,6 +84,7 @@ export default function addScrambleLetters(wordObject, quizHints) {
                         if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
                             IndexStatus.incrementScore();
                             showPassedPanel();
+                            IndexStatus.saveData()
                         } else {
                             playSound("wrong")
                             hints && toggleHints(hints, currentHint, hintContainer)

@@ -3,12 +3,7 @@ import addScrambleLetters from "./helpers/letterFactory.js";
 import { IndexStatus } from "./globalContext.js"
 
 export default function runGame() {
-    const hints = document.getElementById("game-panel__hints");
-  
-    if (IndexStatus.getCurrentIndex() === IndexStatus.getLimit()) {
-        // showWinner screen
-    }
-    
+      
     // containers
     const gamePanelText = document.getElementById("game-panel__text-container");
     const scrambleLetters = document.getElementById("game-panel__scramble-letters");

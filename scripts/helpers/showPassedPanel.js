@@ -1,6 +1,7 @@
 import runGame from "../gameEngine.js";
 import makeToast from "../toast.js";
 import { IndexStatus } from "../globalContext.js";
+import { redirect } from "./redirect.js";
 
 export default function showPassedPanel(congratulations = false) {
     const panelBackground = document.getElementById("background-cover");
@@ -10,14 +11,11 @@ export default function showPassedPanel(congratulations = false) {
     const nextButton = document.getElementById("achieved-panel__buttons-next");
     const scorePlaceholder = document.getElementById("achieved-panel__text-score")
     
-    const nameInput = document.getElementById("name-input")
-    IndexStatus.setPlayerName(nameInput.value)
-
-    const playerName = IndexStatus.getPlayerName()
-    
     IndexStatus.incrementIndex();
     panel.classList.add("active");
     panelBackground.classList.add("active")
+    IndexStatus.saveData()
+    updateMenu()
 
     if (IndexStatus.isBound() || congratulations) {
 
@@ -25,14 +23,13 @@ export default function showPassedPanel(congratulations = false) {
         const score = won ? "win" : "lose"
         playSound(score)
 
-        panelText.textContent = won ? `Congratulations! ${playerName}` : `It's ok ${playerName}`;
+        panelText.textContent = won ? `Congratulations! ${playerName}` : "Better Luck Next Time";
         stopButton.textContent = "Menu";
         nextButton.textContent = "Save";
         scorePlaceholder.textContent = `Score: ${IndexStatus.getScore()}/${IndexStatus.getLimit()}`;
-        
+
         stopButton.onclick = function() {
-            document.getElementById("game-panel").style.height = "0vh";
-            document.getElementById("menu-panel").style.height = "100vh";
+            redirect("game-panel", "menu-panel")
             scorePlaceholder.textContent = ""
             panelText.textContent = ""
             panel.classList.remove("active");
@@ -53,6 +50,7 @@ export default function showPassedPanel(congratulations = false) {
         nextButton.textContent = "Next";
 
         stopButton.onclick = function() {
+            IndexStatus.saveData()
             panel.classList.remove("active");
             panelBackground.classList.remove("active")
             setTimeout(() => {
@@ -66,5 +64,27 @@ export default function showPassedPanel(congratulations = false) {
             runGame();
         };
         return;
+    }
+}
+
+function updateMenu() {
+    const playerName = document.getElementById("player-name").value
+    const menuPanelTitle = document.getElementById("menu-panel__title");
+    const menuPanelPlayButton = document.getElementById("menu-panel__buttons-start");
+    const menuScoreContainer = document.getElementById("menu-panel__score-data");
+    const menuScore = document.getElementById("menu-panel__score");
+    const menuScoreLimit = document.getElementById("menu-panel__score-limit");
+    const lastStopped = document.getElementById("menu-panel__last-stopped");
+    const firstTimePlaying = IndexStatus.getCurrentIndex() === 0;
+
+    menuPanelTitle.textContent = firstTimePlaying ? `Welcome ${playerName}` : `Welcome back ${playerName}`;
+    menuPanelPlayButton.textContent = firstTimePlaying ? "Start" : "Continue";
+
+    if (!firstTimePlaying) {
+        menuScore.textContent = IndexStatus.getScore();
+        menuScoreLimit.textContent = IndexStatus.getLimit();
+        lastStopped.textContent = `Last stopped at number ${IndexStatus.getCurrentIndex() - 1}`;
+        menuScoreContainer.style.display = "block";
+        lastStopped.style.display = "block";
     }
 }

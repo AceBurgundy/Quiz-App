@@ -1,12 +1,4 @@
 #game-panel {
-    height: 0vh;
-    width: 100vw;
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translateX(-50%);
-    background-color: var(--background);
-    transition: 500ms ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,7 +109,7 @@
     min-height: 4rem;
     border: 2px solid var(--colorShadeA);
     border-radius: 20px;
-    background: var(--text);
+    background: var(--background);
     transform-style: preserve-3d;
     transition: all 175ms cubic-bezier(0, 0, 1, 1);
 }
