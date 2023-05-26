@@ -1,32 +1,283 @@
 {
-    "quiz": [
-      {
-        "word": "code",
-        "definition": "A set of instructions or statements to perform a specific task in a computer program.",
-        "hints": [
-          "It is an essential part of programming.",
-          "Developers write it.",
-          "It is executed by computers."
-        ]
-      },
-      {
-        "word": "organize",
-        "definition": "The process of arranging elements in a particular order or sequence.",
-        "hints": [
-          "It is important for organizing data.",
-          "It helps in achieving efficiency.",
-          "It involves putting things in a structured manner."
-        ]
-      },
-      {
-        "word": "test",
-        "definition": "A small piece of code that performs a specific task and can be reused.",
-        "hints": [
-          "It promotes code reusability.",
-          "It encapsulates functionality.",
-          "It is often named after its purpose."
-        ]
-      }
-    ]
+  "quiz": [
+    {
+      "word": "code",
+      "definition": "A set of instructions or statements to perform a specific task in a computer program.",
+      "hints": [
+        "It is an essential part of programming.",
+        "Developers write it.",
+        "It is executed by computers."
+      ]
+    },
+    {
+      "word": "organize",
+      "definition": "The process of arranging elements in a particular order or sequence.",
+      "hints": [
+        "It is important for organizing data.",
+        "It helps in achieving efficiency.",
+        "It involves putting things in a structured manner."
+      ]
+    },
+    {
+      "word": "test",
+      "definition": "A small piece of code that performs a specific task and can be reused.",
+      "hints": [
+        "It promotes code reusability.",
+        "It encapsulates functionality.",
+        "It is often named after its purpose."
+      ]
+    },
+    {
+      "word": "algorithm",
+      "definition": "A sequence of steps or instructions designed to solve a specific problem.",
+      "hints": [
+        "It is used to solve complex problems.",
+        "It can be implemented in various programming languages.",
+        "It often involves logical reasoning."
+      ]
+    },
+    {
+      "word": "variable",
+      "definition": "A named storage location in a program that holds a value that can be changed.",
+      "hints": [
+        "It stores data.",
+        "It can hold different types of values.",
+        "It is used to store and manipulate information."
+      ]
+    },
+    {
+      "word": "database",
+      "definition": "A structured collection of data that is organized and accessible.",
+      "hints": [
+        "It stores large amounts of data.",
+        "It allows efficient retrieval and manipulation of data.",
+        "It can be relational or non-relational."
+      ]
+    },
+    {
+      "word": "function",
+      "definition": "A block of organized, reusable code that performs a specific task.",
+      "hints": [
+        "It promotes modularity and code reuse.",
+        "It can accept input and produce output.",
+        "It helps in breaking down complex problems into manageable parts."
+      ]
+    },
+    {
+      "word": "iteration",
+      "definition": "The process of repeating a set of instructions multiple times.",
+      "hints": [
+        "It involves loops.",
+        "It allows performing repetitive tasks.",
+        "It can be controlled using conditionals."
+      ]
+    },
+    {
+      "word": "interface",
+      "definition": "A point of interaction between a user and a computer system or between two systems.",
+      "hints": [
+        "It allows users to interact with a program.",
+        "It defines how components communicate with each other.",
+        "It can be graphical or command-line based."
+      ]
+    },
+    {
+      "word": "debug",
+      "definition": "The process of finding and fixing errors or defects in a program.",
+      "hints": [
+        "It is done to identify and resolve issues.",
+        "It involves testing and analyzing code.",
+        "It improves the quality and reliability of software."
+      ]
+    },
+    {
+      "word": "syntax",
+      "definition": "The set of rules that govern the structure and composition of a program.",
+      "hints": [
+        "It defines how code is written and organized.",
+        "It must be followed for code to be valid.",
+        "It varies across different programming languages."
+      ]
+    },
+    {
+      "word": "variable",
+      "definition": "A named storage location in a program that holds a value that can be changed.",
+      "hints": [
+        "It stores data.",
+        "It can hold different types of values.",
+        "It is used to store and manipulate information."
+      ]
+    },
+    {
+      "word": "compilation",
+      "definition": "The process of translating source code into machine code or an executable program.",
+      "hints": [
+        "It is performed by a compiler.",
+        "It converts high-level code to low-level code.",
+        "It checks for syntax and semantic errors."
+      ]
+    },
+    {
+      "word": "algorithm",
+      "definition": "A sequence of steps or instructions designed to solve a specific problem.",
+      "hints": [
+        "It is used to solve complex problems.",
+        "It can be implemented in various programming languages.",
+        "It often involves logical reasoning."
+      ]
+    },
+    {
+      "word": "debugger",
+      "definition": "A tool used to identify and fix errors or defects in a program.",
+      "hints": [
+        "It allows stepping through code for inspection.",
+        "It provides tools for analyzing program state.",
+        "It aids in understanding program behavior."
+      ]
+    },
+    {
+      "word": "library",
+      "definition": "A collection of precompiled code and resources that can be used by software programs.",
+      "hints": [
+        "It provides reusable functions and modules.",
+        "It saves development time.",
+        "It offers ready-made solutions to common problems."
+      ]
+    },
+    {
+      "word": "data",
+      "definition": "Facts, statistics, or information that is stored and used by a computer.",
+      "hints": [
+        "It is processed by computer programs.",
+        "It can be in various forms, such as numbers or text.",
+        "It is the foundation of information systems."
+      ]
+    },
+    {
+      "word": "loop",
+      "definition": "A programming construct that repeats a set of instructions until a specific condition is met.",
+      "hints": [
+        "It allows repetitive execution of code.",
+        "It can be controlled using conditions.",
+        "It helps in automating repetitive tasks."
+      ]
+    },
+    {
+      "word": "debug",
+      "definition": "The process of finding and fixing errors or defects in a program.",
+      "hints": [
+        "It is done to identify and resolve issues.",
+        "It involves testing and analyzing code.",
+        "It improves the quality and reliability of software."
+      ]
+    },
+    {
+      "word": "algorithm",
+      "definition": "A sequence of steps or instructions designed to solve a specific problem.",
+      "hints": [
+        "It is used to solve complex problems.",
+        "It can be implemented in various programming languages.",
+        "It often involves logical reasoning."
+      ]
+    },
+    {
+      "word": "class",
+      "definition": "A blueprint for creating objects, providing initial values and behaviors.",
+      "hints": [
+        "It defines the properties and methods of objects.",
+        "It supports the concept of inheritance.",
+        "It is a fundamental building block in object-oriented programming."
+      ]
+    },
+    {
+      "word": "debugger",
+      "definition": "A tool used to identify and fix errors or defects in a program.",
+      "hints": [
+        "It allows stepping through code for inspection.",
+        "It provides tools for analyzing program state.",
+        "It aids in understanding program behavior."
+      ]
+    },
+    {
+      "word": "recursive",
+      "definition": "A function or process that calls itself directly or indirectly.",
+      "hints": [
+        "It involves self-referencing.",
+        "It can solve problems by breaking them into smaller instances.",
+        "It requires a base case to terminate."
+      ]
+    },
+    {
+      "word": "abstraction",
+      "definition": "The process of simplifying complex systems by representing essential features.",
+      "hints": [
+        "It hides unnecessary details.",
+        "It focuses on the most relevant aspects.",
+        "It aids in managing complexity in software design."
+      ]
+    },
+    {
+      "word": "recursion",
+      "definition": "The process in which a function calls itself directly or indirectly.",
+      "hints": [
+        "It is a fundamental concept in computer science.",
+        "It allows solving problems by dividing them into smaller instances.",
+        "It requires a base case to prevent infinite loops."
+      ]
+    },
+    {
+      "word": "inheritance",
+      "definition": "The ability of a class to inherit properties and behaviors from another class.",
+      "hints": [
+        "It promotes code reuse.",
+        "It supports hierarchical relationships.",
+        "It allows creating specialized classes based on a common base."
+      ]
+    },
+    {
+      "word": "database",
+      "definition": "A structured collection of data that is organized and accessible.",
+      "hints": [
+        "It stores large amounts of data.",
+        "It allows efficient retrieval and manipulation of data.",
+        "It can be relational or non-relational."
+      ]
+    },
+    {
+      "word": "polymorphism",
+      "definition": "The ability of objects of different types to be accessed and used through a common interface.",
+      "hints": [
+        "It allows objects to be treated uniformly.",
+        "It supports dynamic method dispatch.",
+        "It promotes flexibility and extensibility in object-oriented programming."
+      ]
+    },
+    {
+      "word": "syntax",
+      "definition": "The set of rules that govern the structure and composition of a program.",
+      "hints": [
+        "It defines how code is written and organized.",
+        "It must be followed for code to be valid.",
+        "It varies across different programming languages."
+      ]
+    },
+    {
+      "word": "module",
+      "definition": "A self-contained unit that encapsulates related functions and data.",
+      "hints": [
+        "It promotes modularity and code organization.",
+        "It can be imported and reused in other programs.",
+        "It helps in separating concerns and improving maintainability."
+      ]
+    },
+    {
+      "word": "data structure",
+      "definition": "A way of organizing and storing data to perform efficient operations.",
+      "hints": [
+        "It provides a specific layout for data storage.",
+        "It determines the efficiency of algorithms.",
+        "Examples include arrays, linked lists, and trees."
+      ]
+    }
+  ]
 }
-  
