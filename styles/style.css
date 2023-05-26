@@ -27,6 +27,7 @@
 :root {
     --primary: #96e8c3;
     --background: #2c2c2c; 
+    --backgroundLight: #2c2c2c5d;
     --text: white;
     --darkText: rgb(29, 59, 46);
     --card: #3f3f3f;
