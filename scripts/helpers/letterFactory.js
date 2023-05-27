@@ -8,6 +8,8 @@ import {
 } from "../globalContext.js";
 import isCurrentWordSameAsAddedWord from "./ifWordsMatch.js";
 
+let count = 0
+
 export default function addScrambleLetters(wordObject, quizHints) {
 
     const hintContainer = document.getElementById("game-panel__hints");
@@ -21,7 +23,14 @@ export default function addScrambleLetters(wordObject, quizHints) {
     const shuffledString = currentWord.split("").sort(() => Math.random() - 0.5).join("");
 
     function handleKeyUp(event) {
+        
         const letter = event.key;
+        count++
+        
+        if (count === 2) {
+            count = 0
+            return
+        }
 
         for (const gameText of gamePanelTextDivs) {
             if (gameText.textContent === "") {

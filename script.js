@@ -101,7 +101,7 @@ function handleOrientationChange() {
   // Listen for orientation change events
   window.addEventListener("orientationchange", handleOrientationChange);
   
-function updateMenu() {
+  function updateMenu() {
     const playerName = document.getElementById("player-name").value
     const menuPanelTitle = document.getElementById("menu-panel__title");
     const menuPanelPlayButton = document.getElementById("menu-panel__buttons-start");
@@ -111,14 +111,26 @@ function updateMenu() {
     const lastStopped = document.getElementById("menu-panel__last-stopped");
     const firstTimePlaying = IndexStatus.getCurrentIndex() === 0;
 
-    menuPanelTitle.textContent = firstTimePlaying ? `Welcome ${playerName}` : `Welcome back ${playerName}`;
-    menuPanelPlayButton.textContent = firstTimePlaying ? "Start" : "Continue";
+    console.log(`current index ${IndexStatus.getCurrentIndex()}`);
+    menuPanelTitle.textContent = "";
+    menuPanelPlayButton.textContent = "";
 
     if (!firstTimePlaying) {
+        menuScore.textContent = "";
+        menuScoreLimit.textContent = "";
+        lastStopped.textContent = "";
+        menuPanelTitle.textContent = `Welcome back ${playerName}`;
+        menuPanelPlayButton.textContent = firstTimePlaying ? "Start" : "Continue";
         menuScore.textContent = IndexStatus.getScore();
         menuScoreLimit.textContent = IndexStatus.getLimit();
         lastStopped.textContent = `Last stopped at number ${IndexStatus.getCurrentIndex() - 1}`;
         menuScoreContainer.style.display = "block";
         lastStopped.style.display = "block";
+    } else {
+        menuPanelTitle.textContent = `Welcome ${playerName}`
+        menuScoreContainer.style.display = "none";
+        lastStopped.style.display = "none";
+        menuPanelTitle.textContent = `Welcome ${playerName}`;
+        menuPanelPlayButton.textContent = "Start";
     }
 }
