@@ -1,17 +1,12 @@
 import toggleHints from "./toggleHints.js";
-import showPassedPanel from "./showPassedPanel.js";
-import allowAddLetter from "./allowAddLetter.js";
-import clearGamePanelTextContainer from "./clearGamePanelTextContainer.js";
+import toggleAchievedPanel from "./toggleAchievedPanel.js";
+import validateLetter from "./letterValidation.js";
+import clearTextContainers from "./clearTextContainers.js";
+import Global from "../global.js";
 
-import {
-    IndexStatus
-} from "../globalContext.js";
-import isCurrentWordSameAsAddedWord from "./ifWordsMatch.js";
+let letter = 0;
 
-let count = 0
-
-export default function addScrambleLetters(wordObject, quizHints) {
-
+export default function addScrambledLetters(wordObject, quizHints) {
     const hintContainer = document.getElementById("game-panel__hints");
     const scrambleLetters = document.getElementById("game-panel__scramble-letters");
     const gamePanelTextDivs = document.getElementById("game-panel__text-container").children;
@@ -23,31 +18,23 @@ export default function addScrambleLetters(wordObject, quizHints) {
     const shuffledString = currentWord.split("").sort(() => Math.random() - 0.5).join("");
 
     function handleKeyUp(event) {
-        
-        const letter = event.key;
-        count++
-        
-        if (count === 2) {
-            count = 0
-            return
-        }
-
+        letter = event.key.toLowerCase();
         for (const gameText of gamePanelTextDivs) {
             if (gameText.textContent === "") {
-                if (allowAddLetter(currentWord, letter, addedWord)) {
+                if (validateLetter(currentWord, letter, addedWord)) {
                     gameText.textContent = letter;
                     addedWord.push(letter);
-                    playSound("click")
+                    playSound("click");
 
                     if (addedWord.length === currentWord.length) {
-                        if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            IndexStatus.incrementScore();
-                            showPassedPanel();
-                            IndexStatus.saveData()
+                        if (currentWord === addedWord.join("")) {
+                            Global.incrementScore();
+                            toggleAchievedPanel();
+                            Global.saveData();
                         } else {
-                            playSound("wrong")
-                            hints && toggleHints(hints, currentHint, hintContainer)
-                            clearGamePanelTextContainer(gamePanelTextDivs);
+                            playSound("wrong");
+                            hints && toggleHints(hints, currentHint, hintContainer);
+                            clearTextContainers(gamePanelTextDivs);
                             addedWord.length = 0;
                         }
                     }
@@ -74,30 +61,31 @@ export default function addScrambleLetters(wordObject, quizHints) {
         scrambleLetters.appendChild(letterBox);
 
         letterBox.addEventListener("click", () => {
-            addLetter(letter);
+            playSound("click");
+            addLetter(letter, letterBox);
             disableKeyUp(); // Disable the keyup event listener after a letter is clicked
         });
     }
 
     enableKeyUp(); // Enable the keyup event listener initially
 
-    function addLetter(letter) {
+    function addLetter(letter, element) {
         for (const gameText of gamePanelTextDivs) {
             if (gameText.textContent === "") {
-                if (allowAddLetter(currentWord, letter, addedWord)) {
+                if (validateLetter(currentWord, letter, addedWord)) {
                     gameText.textContent = letter;
                     addedWord.push(letter);
-                    playSound("click")
+                    element.classList.add("active")
 
                     if (addedWord.length === currentWord.length) {
-                        if (isCurrentWordSameAsAddedWord(currentWord, addedWord)) {
-                            IndexStatus.incrementScore();
-                            showPassedPanel();
-                            IndexStatus.saveData()
+                        if (currentWord === addedWord.join("")) {
+                            Global.incrementScore();
+                            toggleAchievedPanel();
+                            Global.saveData();
                         } else {
-                            playSound("wrong")
-                            hints && toggleHints(hints, currentHint, hintContainer)
-                            clearGamePanelTextContainer(gamePanelTextDivs);
+                            playSound("wrong");
+                            hints && toggleHints(hints, currentHint, hintContainer);
+                            clearTextContainers(gamePanelTextDivs);
                             addedWord.length = 0;
                         }
                     }

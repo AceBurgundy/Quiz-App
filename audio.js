@@ -4,7 +4,7 @@ let sound = ["click", "wrong", "win", "lose", "wordCorrect"]
 
 for (let index = 0; index < sound.length; index++) {
   
-    fetch(`./assets/audio/${sound[index]}.mp3`)
+    fetch(`../assets/audio/${sound[index]}.mp3`)
         .then(data => data.arrayBuffer())
         .then(arrayBuffer => context.decodeAudioData(arrayBuffer))
         .then(decodedAudio => {

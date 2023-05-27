@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/helpers/fittext.js"></script>
+    <script src="../scripts/game.js" type="module"></script>
+    <script src="../audio.js" defer></script>
+    <script>
+        navigator.serviceWorker.register("../service-worker.js")
+    </script>
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/game.css">
+    <link rel="stylesheet" href="../styles/word_correct.css">
+    <title>QuizMe</title>
+</head>
+<body>
+
+    <div id="background-cover"></div>
+
+    <div id="achieved-panel">
+      <!-- <a href="https://iconscout.com/icons/confetti" target="_blank">Free Confetti Icon</a> by <a href="https://iconscout.com/contributors/jemismali" target="_blank">Jemis Mali</a> -->
+      <div id="achieved-panel__text-container">
+        <p id="achieved-panel__text"></p>
+        <p id="achieved-panel__text-score"></p>
+      </div>
+      <div id="achieved-panel__buttons">
+        <button id="achieved-panel__buttons-stop" class="achieved-panel__buttons-button button-primary"></button>
+        <button id="achieved-panel__buttons-next" class="achieved-panel__buttons-button button-primary"></button>
+      </div>
+    </div>
+
+    <div id="game-panel" class="page">
+      <div id="game-panel__container">
+        <div id="game-panel__navigation">
+          <button id="game-panel__navigation-description" class="nav-link">Guide</button>
+          <button id="game-panel__navigation-skip" class="nav-link">Skip</button>
+        </div>
+          <div id="game-panel__hints"></div>
+          <div id="game-panel__containers">
+            <div id="game-panel__text-container"></div>
+            <div id="game-panel__scramble-letters">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>

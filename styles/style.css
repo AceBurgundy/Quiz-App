@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('./notifications.css');
-@import url('./name.css');
-@import url('./game.css');
-@import url('./title.css');
-@import url('./menu.css');
-@import url("./word_correct.css");
 
 * {
     overflow: hidden;

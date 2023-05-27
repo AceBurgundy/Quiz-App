@@ -46,7 +46,7 @@
 #menu-panel__buttons-reset {
     width: fit-content;
     font-size: 1.5vw;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 #menu-panel__buttons-start:hover {
@@ -71,7 +71,7 @@
 
     #menu-panel__buttons-start {
         width: 100%;
-        bottom: 10%;
+        bottom: 5%;
     }
 
 }

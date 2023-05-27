@@ -11,6 +11,8 @@ export default function toggleHints(hints, currentHint, hintContainer) {
     hintContainer.innerHTML = hint;
     hintContainer.classList.add("active");
 
+    document.querySelectorAll(".game-panel__scramble-letters-letter").forEach(button => button.classList.remove("active"))
+    
     setTimeout(() => {
         hintContainer.classList.remove("active");
     }, 2500);

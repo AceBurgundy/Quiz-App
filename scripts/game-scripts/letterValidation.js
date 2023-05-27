@@ -3,7 +3,7 @@ function countOccurrences(str, letter) {
     return occurrences.length;
 }
 
-export default function allowAddLetter(currentWord, letter, addedWord) {
+export default function validateLetter(currentWord, letter, addedWord) {
     const countInCurrentWord = countOccurrences(currentWord, letter);
     const countInAddedWord = countOccurrences(addedWord.join(""), letter);
 

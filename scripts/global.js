@@ -1,19 +1,17 @@
-
-export const IndexStatus = (() => {
+const Global = (() => {
   let currentIndex = 0;
   let limit = 0;
   let score = 0;
-  let playerName = document.getElementById("player-name").value
+  let playerName = ""
+
+  const setPlayerName = (newPlayerName) => playerName = newPlayerName
 
   const isAllowed = () => currentIndex <= limit >= 0;
 
-  const resetIndex = () => {
-    currentIndex = 0;
-    score = 0;
-    limit = 0;
-  };
+  const setCurrentIndex = (index) => currentIndex = index
 
   const getScore = () => score;
+  
   const incrementScore = () => score++;
 
   const isBound = () => currentIndex === limit;
@@ -22,10 +20,6 @@ export const IndexStatus = (() => {
     if (typeof newLimit === "number") {
       limit = newLimit;
     }
-  };
-
-  const setPlayerName = (nameInput) => {
-    playerName = nameInput
   };
 
   const getPlayerName = () => playerName;
@@ -47,6 +41,7 @@ export const IndexStatus = (() => {
   };
 
   const saveData = () => {
+    console.log(`global player name is ${playerName}`);
     const data = {
       score: score.toString(),
       playerName: playerName,
@@ -64,8 +59,6 @@ export const IndexStatus = (() => {
       currentIndex = parseInt(data.lastStoped)
       playerName = data.playerName
       limit = data.numberOfItems
-
-      console.table(score, playerName, currentIndex, limit);
     }
   };
 
@@ -83,9 +76,8 @@ export const IndexStatus = (() => {
   return {
     isAllowed,
     setLimit,
-    isBound,
-    resetIndex,
     setPlayerName,
+    isBound,
     incrementScore,
     decrementIndex,
     getPlayerName,
@@ -97,7 +89,10 @@ export const IndexStatus = (() => {
     retrieveScore,
     resetData,
     initialize,
+    setCurrentIndex
   };
 })();
 
-IndexStatus.initialize();
+Global.initialize();
+
+export default Global

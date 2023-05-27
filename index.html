@@ -1,83 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script src="audio.js"></script>
-  <script src="./scripts/fittext.js"></script>
-  <script src="script.js" type="module"></script>
-  <script>navigator.serviceWorker.register("service-worker.js")</script> 
-
+  <script src="./scripts/index.js" type="module"></script>
+  <script>
+    navigator.serviceWorker.register("./service-worker.js")
+  </script>
+  <link rel="manifest" href="./manifest.json" />
   <link rel="stylesheet" href="./styles/style.css">
-  <link rel="manifest" href="manifest.json" />
-  
+  <link rel="stylesheet" href="./styles/title.css">
   <title>QuizMe</title>
 </head>
+
 <body>
-  
-    <input type="hidden" id="player-name">
-    
-    <div id="flashes">
-    </div>
 
-    <div id="name-prompt" class="page">
-      <input type="text" id="name-panel__input" placeholder="What your name?" required>
-      <button id="name-panel__submit-name">Proceed</button>
-    </div>
+  <div id="title-panel" class="page">
+    <p id="title-panel__title">QuizeME</p>
+    <button id="title-panel__buttons-proceed">
+      <svg id="play-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 7">
+        <path fill-rule="evenodd"
+          d="M296.495 3608.573l-3.994-2.43c-.669-.408-1.501.107-1.501.926v4.862c0 .82.832 1.333 1.5.927l3.995-2.43c.673-.41.673-1.445 0-1.855"
+          transform="translate(-291 -3606)"></path>
+      </svg>
+    </button>
+  </div>
 
-    <div id="title-panel" class="page">
-      <p id="title-panel__title">QuizeME</p>
-      <button id="title-panel__buttons-proceed">
-        <svg id="play-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 7"><path fill-rule="evenodd" d="M296.495 3608.573l-3.994-2.43c-.669-.408-1.501.107-1.501.926v4.862c0 .82.832 1.333 1.5.927l3.995-2.43c.673-.41.673-1.445 0-1.855" transform="translate(-291 -3606)"></path></svg>
-      </button>
-    </div>
-
-    <div id="menu-panel" class="page">
-      <div id="menu-panel__top">
-        <div id="menu-panel__game-title-section">
-          <p id="menu-panel__game-title">QuizMe</p>
-          <p id="menu-panel__game-title-description">
-            A Computer Science Scrambled Word Challenge
-          </p>
-        </div>
-        <p id="menu-panel__title"></p>
-      </div>
-      <p id="menu-panel__score-data">
-        Current Score: 
-        <span id="menu-panel__score"></span>/<span id="menu-panel__score-limit"></span>
-      </p>
-      <p id="menu-panel__last-stopped"></p>
-      <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
-      <button id="menu-panel__buttons-start" class="button-primary"></button>
-    </div>
-
-    <div id="background-cover"></div>
-    <div id="achieved-panel">
-      <!-- <a href="https://iconscout.com/icons/confetti" target="_blank">Free Confetti Icon</a> by <a href="https://iconscout.com/contributors/jemismali" target="_blank">Jemis Mali</a> -->
-      <div id="achieved-panel__text-container">
-        <p id="achieved-panel__text"></p>
-        <p id="achieved-panel__text-score"></p>
-      </div>
-      <div id="achieved-panel__buttons">
-        <button id="achieved-panel__buttons-stop" class="achieved-panel__buttons-button button-primary"></button>
-        <button id="achieved-panel__buttons-next" class="achieved-panel__buttons-button button-primary"></button>
-      </div>
-    </div>
-
-    <div id="game-panel" class="page">
-      <div id="game-panel__container">
-        <div id="game-panel__navigation">
-          <button id="game-panel__navigation-skip-div">Skip</button>
-        </div>
-          <div id="game-panel__hints"></div>
-          <div id="game-panel__containers">
-            <div id="game-panel__text-container"></div>
-            <div id="game-panel__scramble-letters">
-          </div>
-        </div>
-      </div>
-    </div>
 </body>
+
 </html>

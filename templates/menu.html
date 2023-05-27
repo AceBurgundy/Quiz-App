@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/menu.js" type="module"></script>
+    <script src="../scripts/helpers/fittext.js"></script>
+    <script>
+      navigator.serviceWorker.register("../service-worker.js")
+    </script>
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/menu.css">
+    <title>QuizMe</title>
+</head>
+
+<body>
+    <div id="menu-panel" class="page">
+        <div id="menu-panel__top">
+            <div id="menu-panel__game-title-section">
+                <p id="menu-panel__game-title">QuizMe</p>
+                <p id="menu-panel__game-title-description">
+                    A Computer Science Scrambled Word Challenge
+                </p>
+            </div>
+            <p id="menu-panel__title"></p>
+        </div>
+        <p id="menu-panel__score-data">
+            Current Score:
+            <span id="menu-panel__score"></span>/<span id="menu-panel__score-limit"></span>
+        </p>
+        <p id="menu-panel__last-stopped"></p>
+        <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
+        <button id="menu-panel__buttons-start" class="button-primary"></button>
+    </div>
+
+</body>
+
+</html>
