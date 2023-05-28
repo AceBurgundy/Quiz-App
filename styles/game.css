@@ -217,6 +217,7 @@
     }
 
     #game-panel__navigation {
+        width: 90%;
         padding: 4rem;
     }
 
