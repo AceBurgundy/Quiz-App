@@ -206,8 +206,8 @@
     #game-panel__containers {
         width: 100%;
         flex-direction: column;
-        justify-content: space-around;
-        gap: 1rem;
+        justify-content: center;
+        gap: 2rem;
     }
 
     #definition-panel {
