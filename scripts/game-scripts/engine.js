@@ -18,8 +18,12 @@ export default function runGame() {
             quizData = jsonData.quiz;
             Global.setLimit(quizData.length);
             
-            const word = quizData[Global.getCurrentIndex()];
-            const hints = [...quizData[Global.getCurrentIndex()].hints];
+            const currentWord = quizData[Global.getCurrentIndex()]
+
+            const word = currentWord;
+            const hints = [...currentWord.hints];
+
+            document.getElementById("definition-panel").textContent = currentWord.definition
 
             gamePanelText.innerHTML = "";
             scrambleLetters.innerHTML = "";

@@ -4,6 +4,32 @@
     justify-content: center;
 }
 
+#definition-panel {
+    width: 100vw;
+    height: 0vh;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4rem;
+    font-size: 2vw;
+    transition: 250ms ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+#definition-panel.active {
+    height: 100vh;
+    opacity: 1;
+    pointer-events: all;
+}
+
 #game-panel__container {
     display: flex;
     align-items: center;
@@ -16,18 +42,17 @@
 }
 
 #game-panel__containers {
-    width: 100%;
-    overflow: visible;
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     justify-content: space-between;
-    gap: 10vw;
+    gap: 5vw;
 }
 
 #game-panel__navigation {
-    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +82,7 @@
     border: none;
     background-color: inherit;
     cursor: pointer;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
 }
 
 #game-panel__text-container,
@@ -65,6 +90,7 @@
     width: 90%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
     height: fit-content;
@@ -83,12 +109,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6vw;
-    height: 6vw;
-    min-width: 4rem;
-    min-height: 4rem;
-    border: 2px solid black;
 }   
+
+#refresh-container {
+    padding: 2rem;
+    border-radius: 50%;
+    border: 2px solid var(--colorShadeA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    margin: 1rem;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+#refresh-arrow {
+    width: 3vw;
+    background-color: inherit;
+    fill: var(--colorShadeA);
+    transition: 250ms;
+}
 
 .game-panel__text,
 .game-panel__scramble-letters-letter {
@@ -159,16 +201,39 @@
 @media screen and (orientation: portrait) {
 
     #game-panel__containers {
-        gap: 3rem;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    #definition-panel {
+        padding: 2rem;
     }
 
     #game-panel__hints {
         font-size: 1rem;
     }
 
+    #game-panel__navigation {
+        padding: 0;
+    }
+
+    #refresh-container {
+        padding: 0.5rem;
+        position: static;
+        height: fit-content;
+        width: fit-content;
+        margin: 1rem 0;
+    }
+    
+    #refresh-arrow {
+        width: 1.5rem;
+    }
+
     .game-panel__text,
     .game-panel__scramble-letters-letter {
-        font-size: 1.8rem;
+        font-size: 1rem;
         border-radius: 5px;
     }
 

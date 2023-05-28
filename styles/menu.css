@@ -21,10 +21,6 @@
     margin-top: 2rem;
 }
 
-#menu-panel__last-stopped {
-    margin-bottom: 2rem;
-}
-
 #menu-panel__score-data,
 #menu-panel__last-stopped {
     display: none;
@@ -54,6 +50,7 @@
 #menu-panel__buttons-reset {
     width: fit-content;
     font-size: 1.5vw;
+    margin-top: 2rem;
 }
 
 #menu-panel__buttons-start:hover {

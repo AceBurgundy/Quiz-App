@@ -1,4 +1,5 @@
 import runGame from "./game-scripts/engine.js";
+import Global from "./global.js";
 import Game from "./helpers/events.js";
 
 // name prompt
@@ -15,15 +16,20 @@ Game.click("game-panel__navigation-skip", () => {
     }
 });
 
+Game.click("game-panel__navigation-definition", () => {
+    document.getElementById("definition-panel").classList.add("active")
+})
+
+Game.click("definition-panel", (event) => {
+    event.target.classList.remove("active")
+})
+
 runGame();
 
 function handleOrientationChange() {
     if (window.matchMedia("(orientation: portrait)").matches) {
         const fitText = (element, value) => window.fitText(element, value);
-
-        document.querySelectorAll(".nav-link").forEach((link) => {
-            fitText(link, 0.1);
-        });
+        fitText(document.getElementById("definition-panel"), 1.5);
     }
 }
 
