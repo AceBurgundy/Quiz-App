@@ -237,6 +237,7 @@
     .game-panel__scramble-letters-letter {
         font-size: 1rem;
         border-radius: 5px;
+        height: fit-content;
     }
 
     .game-panel__scramble-letters-letter::before {
