@@ -2,7 +2,7 @@ import Global from "./global.js";
 import Game from "./helpers/events.js";
 import redirect from "./helpers/redirect.js";
 
-document.getElementById("menu-panel").style.height = "100vh"
+document.getElementById("menu-panel").style.height = "100vh";
 
 //resets data
 Game.click("menu-panel__buttons-reset", () => {
@@ -15,7 +15,7 @@ Game.click("menu-panel__buttons-start", () => {
     redirect("menu-panel", "game.html");
 });
 
-const playerName = Global.getPlayerName()
+const playerName = Global.getPlayerName();
 const getElement = (id) => document.getElementById(id);
 
 // menu panel
@@ -47,7 +47,10 @@ if (firstTimePlaying) {
     setText(menuScore, Global.getScore());
     setText(menuScoreLimit, Global.getLimit());
     setText(menuButton, "Continue");
-    setText(lastStopped, `Last stopped at number ${Global.getCurrentIndex() - 1}`);
+    setText(
+        lastStopped,
+        `Last stopped at number ${Global.getCurrentIndex() - 1}`
+    );
     setDisplay(menuScoreContainer, "block");
     setDisplay(lastStopped, "block");
 }
@@ -70,3 +73,10 @@ handleOrientationChange();
 
 // Listen for orientation change events
 window.addEventListener("orientationchange", handleOrientationChange);
+
+const setHeight = function () {
+    const currentHeight = window.innerHeight;
+    document.body.style.height = `${currentHeight}px`;
+};
+window.addEventListener("resize", setHeight);
+setHeight();
