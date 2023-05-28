@@ -148,8 +148,8 @@
     overflow: visible;
     width: 6vw;
     height: 6vw;
-    min-width: 4rem;
-    min-height: 4rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
     border: 2px solid var(--colorShadeA);
     border-radius: 20px;
     background: var(--background);
@@ -216,7 +216,7 @@
     }
 
     #game-panel__navigation {
-        padding: 0;
+        padding: 1rem;
     }
 
     #refresh-container {
