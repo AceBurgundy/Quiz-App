@@ -20,6 +20,10 @@
     color: var(--text);
 }
 
+html {
+    height: -webkit-fill-available;
+}
+
 :root {
     --primary: #FBB635;
     --background: #2c2c2c; 
@@ -46,6 +50,11 @@
     transform: translateX(-50%);
     background-color: var(--background);
     transition: 500ms ease;
+    height: -webkit-fill-available;
+}
+
+body {
+    height: -webkit-fill-available;
 }
 
 .button-primary {

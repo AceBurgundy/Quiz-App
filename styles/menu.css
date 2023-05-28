@@ -17,6 +17,14 @@
     font-size: 1vw;
 }
 
+#menu-panel__score-data {
+    margin-top: 2rem;
+}
+
+#menu-panel__last-stopped {
+    margin-bottom: 2rem;
+}
+
 #menu-panel__score-data,
 #menu-panel__last-stopped {
     display: none;
@@ -25,7 +33,7 @@
 
 #menu-panel__title {
     font-size: 2vw;
-    margin: 2rem 0;
+    margin-top: 2rem;
 }
 
 #menu-panel__buttons-start {
@@ -74,9 +82,8 @@
         bottom: 5%;
     }
 
-}
-
-@media screen and (orientation: landscape) and (max-width: 1370px) and (max-height: 600px) {
-
+    #menu-panel__buttons-reset {
+        font-size: 1rem;
+    }
 
 }

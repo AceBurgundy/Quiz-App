@@ -22,7 +22,6 @@ const getElement = (id) => document.getElementById(id);
 const menuGameTitle = getElement("menu-panel__game-title");
 const menuGameDescription = getElement("menu-panel__game-title-description");
 const menuButton = getElement("menu-panel__buttons-start");
-const resetButton = getElement("menu-panel__buttons-reset");
 const menuPanelTitle = getElement("menu-panel__title");
 const menuScoreContainer = getElement("menu-panel__score-data");
 const menuScore = getElement("menu-panel__score");
@@ -60,7 +59,6 @@ function handleOrientationChange() {
         fitText(menuGameTitle, 0.4);
         fitText(menuGameDescription, 2.5);
         fitText(menuButton, 2);
-        fitText(resetButton, 2);
         fitText(menuPanelTitle, 1.5);
         fitText(menuScoreContainer, 2);
         fitText(lastStopped, 2);
