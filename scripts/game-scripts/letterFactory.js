@@ -128,16 +128,10 @@ export default function addScrambledLetters(wordObject, quizHints) {
         }
     }
 
-    let rotation = 90;
+    Game.click("refresh-arrow", () => {
 
-    Game.click("refresh-container", () => {
         playSound("click");
-        document.getElementById(
-            "refresh-container"
-        ).firstElementChild.style.rotate = `${rotation}deg`;
-
-        rotation += 90;
-
+        
         scrambleLetters.innerHTML = ""; // Clear existing buttons
 
         const shuffledString = currentWord

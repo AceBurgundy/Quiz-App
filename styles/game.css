@@ -151,8 +151,7 @@
 }
 
 #refresh-arrow {
-    width: 3vw;
-    background-color: inherit;
+    width: 1vw;
     fill: var(--colorShadeA);
     transition: 250ms;
 }
