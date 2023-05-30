@@ -1,6 +1,7 @@
 import Global from "../global.js";
 import runGame from "./engine.js";
 import redirect from "../helpers/redirect.js"
+import Game from "../helpers/events.js";
 
 export default function showPassedPanel(congratulations = false) {
 
@@ -24,7 +25,7 @@ export default function showPassedPanel(congratulations = false) {
 
         panelText.textContent = won ? `Congratulations! ${playerName}` : "Better Luck Next Time";
         stopButton.textContent = "Menu";
-        nextButton.textContent = "Save";
+        nextButton.style.display = "none"
         scorePlaceholder.textContent = `Score: ${Global.getScore()}/${Global.getLimit()}`;
 
         stopButton.onclick = function() {
@@ -33,10 +34,7 @@ export default function showPassedPanel(congratulations = false) {
             panel.classList.remove("active");
             panelBackground.classList.remove("active")
             redirect("game-panel", "menu.html")
-        };
-
-        nextButton.onclick = function() {
-            makeToast("toggle save");
+            nextButton.style.display = "block"
         };
 
         return;
@@ -62,3 +60,9 @@ export default function showPassedPanel(congratulations = false) {
         return;
     }
 }
+
+Game.click("menu-prompt__yes", () => {
+    Global.setCurrentIndex(Global.getScore())
+    Global.saveData()
+    redirect("game-panel", "menu.html")
+})

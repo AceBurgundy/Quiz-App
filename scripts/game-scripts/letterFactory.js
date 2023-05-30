@@ -15,7 +15,6 @@ export default function addScrambledLetters(wordObject, quizHints) {
     const gamePanelTextDivs = document.getElementById(
         "game-panel__text-container"
     ).children;
-    const panelContainers = document.getElementById("game-panel__containers");
     let currentHint = "";
     let hints = quizHints;
     let currentWord = wordObject.word.toLowerCase();
@@ -25,27 +24,6 @@ export default function addScrambledLetters(wordObject, quizHints) {
     .split("")
     .sort(() => Math.random() - 0.5)
     .join("");
-
-    function handleOrientationChange() {
-        if (window.matchMedia("(orientation: portrait)").matches) {
-            if (shuffledString.length > 10) {
-                panelContainers.classList.add("extend");
-                panelContainers.classList.remove("default")
-              
-            }
-
-            if (shuffledString.length < 10) {
-                panelContainers.classList.add("default");
-                panelContainers.classList.remove("extend")
-            }
-        }
-    }
-
-    // Initial check on page load
-    handleOrientationChange();
-
-    // Listen for orientation change events
-    window.addEventListener("orientationchange", handleOrientationChange);
 
     function handleKeyUp(event) {
         letter = event.key.toLowerCase();

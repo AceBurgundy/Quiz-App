@@ -24,12 +24,23 @@ Game.click("definition-panel", (event) => {
     event.target.classList.remove("active")
 })
 
+const menuPromptBackground = document.getElementById("menu-prompt__background")
+
+Game.click("x-icon", () => {
+    menuPromptBackground.classList.add("active")
+})
+
+Game.click("menu-prompt__no", () => {
+    menuPromptBackground.classList.remove("active")
+})
+
 runGame();
 
 function handleOrientationChange() {
     if (window.matchMedia("(orientation: portrait)").matches) {
         const fitText = (element, value) => window.fitText(element, value);
         fitText(document.getElementById("definition-panel"), 1.5);
+        fitText(document.getElementById("menu-prompt__message", 1))
     }
 }
 

@@ -26,7 +26,7 @@ html {
 :root {
     --primary: #FBB635;
     --background: #2c2c2c; 
-    --backgroundLight: #2c2c2c5d;
+    --backgroundLight: #2c2c2cc0;
     --text: white;
     --darkText: rgb(29, 59, 46);
     --card: #3f3f3f;
