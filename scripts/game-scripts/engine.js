@@ -31,7 +31,7 @@ export default function runGame() {
             addLetterContainers(word);
             addScrambledLetters(word, hints);
         } catch (error) {
-            console.error("Error fetching JSON data:", error);
+            // console.error("Error fetching JSON data:", error);
         }
     }
 

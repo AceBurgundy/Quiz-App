@@ -1,6 +1,6 @@
-import redirect from "./helpers/redirect.js";
 import Game from "./helpers/events.js";
 import Global from "../scripts/global.js";
+import redirect from "./helpers/redirect.js";
 
 let preloadLink =
     Global.getPlayerName() === ""

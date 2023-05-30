@@ -17,24 +17,42 @@
 </head>
 
 <body>
+
+    <div id="pattern-background">
+    </div>
+
     <div id="menu-panel" class="page">
+
         <div id="menu-panel__top">
+            <div id="menu-panel__name-container">
+                <p id="menu-panel__name"></p>
+            </div>
             <div id="menu-panel__game-title-section">
                 <p id="menu-panel__game-title">QuizMe</p>
                 <p id="menu-panel__game-title-description">
                     A Computer Science Scrambled Word Challenge
                 </p>
+                <p id="menu-panel__score-data">
+                    Score:
+                    <span id="menu-panel__score"></span>/<span id="menu-panel__score-limit"></span>
+                </p>
             </div>
-            <p id="menu-panel__title"></p>
         </div>
-        <p id="menu-panel__score-data">
-            Current Score:
-            <span id="menu-panel__score"></span>/<span id="menu-panel__score-limit"></span>
-        </p>
-        <p id="menu-panel__last-stopped"></p>
-        <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
-        <button id="menu-panel__buttons-start" class="button-primary"></button>
+        <div id="menu-panel__buttons-container">
+            <button id="menu-panel__buttons-start" class="button-primary"></button>
+            <button id="menu-panel__buttons-settings" class="button-primary">Settings</button>
+            <button id="menu-panel__buttons-quit" class="button-primary">Quit</button>
+        </div>
     </div>
+
+    <div id="background-cover">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+        <div id="settings-container">
+            <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
+        </div>
+    </div>
+
+
 
 </body>
 

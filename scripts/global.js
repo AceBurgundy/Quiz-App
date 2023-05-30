@@ -41,7 +41,6 @@ const Global = (() => {
   };
 
   const saveData = () => {
-    console.log(`global player name is ${playerName}`);
     const data = {
       score: score.toString(),
       playerName: playerName,

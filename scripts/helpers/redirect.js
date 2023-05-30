@@ -3,5 +3,5 @@ export default function redirect(currentPageElement, endPageElement) {
 
     setTimeout(() => {
         window.location.href = endPageElement
-    }, 300);
+    }, 400);
 }
