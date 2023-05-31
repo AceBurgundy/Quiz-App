@@ -52,7 +52,7 @@ body {
     height: 100vh;
     position: fixed;
     background-color: var(--background);
-    transition: transform 400ms ease;
+    transition: transform 200ms ease;
     transform: translateY(100%);
 }
 

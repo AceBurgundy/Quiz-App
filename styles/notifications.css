@@ -8,6 +8,12 @@
     z-index: 10;
 }
 
+@media screen and (orientation: portrait) {
+    #flashes {
+        margin-top: 4rem;
+    }
+}
+
 .message {
     padding: 0.5rem 1rem;
     font-size: var(--default-font-size);
