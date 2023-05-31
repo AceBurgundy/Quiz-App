@@ -33,10 +33,12 @@
     justify-content: space-evenly;
     overflow: visible;
     opacity: 0;
+    pointer-events: none;
 }
 
 #achieved-panel.active {
     opacity: 1;
+    pointer-events: all;
 }
 
 #achieved-panel > * {

@@ -93,6 +93,7 @@ export default function addScrambledLetters(wordObject, quizHints) {
 
         letterBox.addEventListener("click", () => {
             playSound("click");
+            console.log("yes");
             addLetter(letter, letterBox);
             disableKeyUp(); // Disable the keyup event listener after a letter is clicked
         });
