@@ -72,6 +72,8 @@
     align-items: center;
     width: 50%;
     margin-top: 2rem;
+    overflow: visible;
+    padding: 0.1rem;
 }
 
 .nav-link {
@@ -248,7 +250,7 @@
 
     #game-panel__navigation {
         width: 90%;
-        margin: 5rem 1rem 1rem 1rem;
+        margin: 3rem 1rem 1rem 1rem;
     }
 
     #refresh-container {
@@ -261,6 +263,10 @@
 
     #refresh-arrow {
         width: 1.5rem;
+    }
+
+    #x-icon {
+        width: 2.5rem;
     }
 
     .nav-link-text {
