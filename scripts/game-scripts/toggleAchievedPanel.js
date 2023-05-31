@@ -43,7 +43,7 @@ export default function showPassedPanel(congratulations = false) {
 
         playSound("wordCorrect")
         panelText.textContent = "You got it right!";
-        stopButton.textContent = "Nahh";
+        stopButton.textContent = "End";
         nextButton.textContent = "Next";
 
         stopButton.onclick = function() {
