@@ -23,3 +23,23 @@ setHeight();
 window.onload = () => {
     document.getElementById("title-panel").style.transform = "translateY(0%)"
 }
+
+// Listen for messages from the service worker
+navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data.action === 'showInstallMessage') {
+      // Show the install message div
+      const installMessageDiv = document.getElementById('install-prompt');
+      installMessageDiv.style.display = 'flex';
+    }
+  });
+  
+  // When the user installs the game
+  function installGame() {
+    // Send a message to the service worker
+    navigator.serviceWorker.controller.postMessage({ action: 'gameInstalled' });
+    // Hide the install message div
+    const installMessageDiv = document.getElementById('install-prompt');
+    installMessageDiv.style.display = 'none';
+  }
+  
+  document.getElementById("install-prompt__button").addEventListener("click", installGame())

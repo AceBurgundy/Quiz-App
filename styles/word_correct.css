@@ -24,15 +24,19 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 300%);
-    transition: 100ms ease-in-out;
+    transform: translate(-50%, -50%);
+    transition: opacity 250ms ease-in-out;
     z-index: 50;
     background-color: var(--card);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     overflow: visible;
-    transition: 250ms;
+    opacity: 0;
+}
+
+#achieved-panel.active {
+    opacity: 1;
 }
 
 #achieved-panel > * {
@@ -68,10 +72,6 @@
 #achieved-panel__text-score {
     font-size: 1.5vw;
     text-align: center;
-}
-
-#achieved-panel.active {
-    transform: translate(-50%, -50%);
 }
 
 @media screen and (orientation: portrait) {    
