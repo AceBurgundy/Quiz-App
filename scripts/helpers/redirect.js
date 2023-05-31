@@ -1,7 +1,8 @@
 export default function redirect(currentPageElement, endPageElement) {
-    document.getElementById(currentPageElement).style.height = "0vh"
+    const currentPage = document.getElementById(currentPageElement);
+    currentPage.style.transform = "translateY(-100%)";
 
     setTimeout(() => {
-        window.location.href = endPageElement
+        window.location.href = endPageElement;
     }, 400);
 }

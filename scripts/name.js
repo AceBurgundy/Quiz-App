@@ -7,8 +7,9 @@ if (Global.getPlayerName() !== "") {
     redirect("name-prompt", "menu.html");
 }
 
-// name prompt
-document.getElementById("name-prompt").style.height = "100vh";
+window.onload = () => {
+    document.getElementById("name-prompt").style.transform = "translateY(0%)"
+}
 
 Game.click("name-panel__submit-name", () => {
     const nameInput = document.getElementById("name-panel__input").value;

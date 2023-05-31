@@ -19,3 +19,7 @@ const setHeight = function () {
 };
 window.addEventListener("resize", setHeight);
 setHeight();
+
+window.onload = () => {
+    document.getElementById("title-panel").style.transform = "translateY(0%)"
+}

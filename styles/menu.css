@@ -1,21 +1,10 @@
-#pattern-background {
-    position: fixed;
-    z-index: 1;
-    background-color: var(--background);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 #menu-panel {
     display: flex;
     flex-direction: column;
     width: 80%;
     position: relative;
     z-index: 2;
-    background-color: rgba(44, 44, 44, 0);
+    background-color: var(--background);
 }
 
 #menu-panel__top {
@@ -40,31 +29,8 @@
     margin-left: 5px;
 }
 
-.cube {
-    outline: none;
-    font-size: 1.5vw;
-    color: var(--colorShadeA);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: inherit;
-    overflow: visible;
-    width: 7vw;
-    height: 7vw;
-    min-width: 5rem;
-    min-height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 20%;
-    border: 5px solid var(--colorShadeA);
-    border-radius: 20px;
-    margin: 5rem;
-    background: var(--background);
-}
-
 #menu-panel__score-data,
 #menu-panel__last-stopped {
-    display: none;
     font-size: 1vw;
 }
 
@@ -155,11 +121,6 @@
 
 @media screen and (orientation: portrait) {
 
-    .cube {
-        margin: 3rem;
-        font-size: 1rem;
-    }
-
     #menu-panel {
         width: 90%;
         align-items: flex-start;
@@ -167,19 +128,6 @@
     
     #menu-panel__top {
         margin-bottom: 3rem;
-    }
-
-    #menu-panel__name-container {
-        margin-top: 2rem;
-        width: fit-content;
-        background-color: var(--accent);
-        padding: 0.5rem;
-        height: fit-content;
-    }
-
-    #menu-panel__name {
-        text-align: left;
-        font-size: 2rem;
     }
 
     #menu-panel__game-title-section {
@@ -195,65 +143,26 @@
         text-align: center;
     }
 
+    #menu-panel__name {
+        text-align: left;
+        font-size: 1rem;
+    }
+
     #menu-panel__buttons-container {
         width: 100%;
-        display: flex;
-        flex-direction: column;
         gap: 2rem;
-        align-items: center;
-        overflow: visible;
     }
 
     #menu-panel__buttons-container > * {
         width: 70%;
     }
 
-    #background-cover {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 0vh;
-        width: 100vw;
-        background-color: #2c2c2ce2;
-        backdrop-filter: blur(100px) saturate(200%);
-        -webkit-backdrop-filter: blur(100px) saturate(200%);
-        transition: 250ms ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #background-cover.active {
-        height: 100vh;
-        opacity: 1;
-    }
-
     #settings-container {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
         width: 70%;
-        display: flex;
-        background-color: #33333300;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 1rem;
-        border-radius: 10px;
     }
 
     #settings-container > * {
         width: 90%;
     }
 
-    #x-icon {
-        width: 2rem;
-        position: absolute;
-        right: 0%;
-        top: 0%;
-        margin-top: 2.5rem;
-        margin-right: 1rem;
-        fill: var(--accent);
-    }
 }

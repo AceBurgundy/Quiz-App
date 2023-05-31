@@ -8,15 +8,16 @@
     padding: 0;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
- }
+}
 
 *::before,
 *::after {
-      box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
     color: var(--text);
+    background-color: var(--background);
 }
 
 html {
@@ -25,7 +26,7 @@ html {
 
 :root {
     --primary: #FBB635;
-    --background: #2c2c2c; 
+    --background: #2c2c2c;
     --backgroundLight: #2c2c2cc0;
     --text: white;
     --darkText: rgb(29, 59, 46);
@@ -40,16 +41,19 @@ html {
     --colorShadeE: hsl(39, 100%, 92%);
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .page {
-    height: 0vh;
     width: 100vw;
+    height: 100vh;
     position: fixed;
-    left: 50%;
-    bottom: 0%;
-    transform: translateX(-50%);
     background-color: var(--background);
-    transition: 500ms ease;
-    height: -webkit-fill-available;
+    transition: transform 400ms ease;
+    transform: translateY(100%);
 }
 
 body {

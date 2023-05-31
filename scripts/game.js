@@ -2,9 +2,9 @@ import runGame from "./game-scripts/engine.js";
 import Global from "./global.js";
 import Game from "./helpers/events.js";
 
-// name prompt
-const gamePanel = document.getElementById("game-panel");
-gamePanel.style.height = "100vh";
+window.onload = () => {
+    document.getElementById("game-panel").style.transform = "translateY(0%)"
+}
 
 // skip button
 Game.click("game-panel__navigation-skip", () => {
@@ -40,7 +40,7 @@ function handleOrientationChange() {
     if (window.matchMedia("(orientation: portrait)").matches) {
         const fitText = (element, value) => window.fitText(element, value);
         fitText(document.getElementById("definition-panel"), 1.5);
-        fitText(document.getElementById("menu-prompt__message", 1))
+        fitText(document.getElementById("menu-prompt__message", 1.5))
     }
 }
 
