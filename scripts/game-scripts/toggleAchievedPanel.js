@@ -17,13 +17,13 @@ export default function showPassedPanel(congratulations = false) {
     panelBackground.classList.add("active")
     Global.saveData()
 
-    if (Global.isBound() || congratulations) {
+    if (Global.getScore() == Global.getLimit() || congratulations) {
 
         const won = Global.getScore() === Global.getLimit()
         const score = won ? "win" : "lose"
         playSound(score)
 
-        panelText.textContent = won ? `Congratulations! ${playerName}` : "Better Luck Next Time";
+        panelText.textContent = won ? `Congratulations!` : "Better Luck Next Time";
         stopButton.textContent = "Menu";
         nextButton.style.display = "none"
         scorePlaceholder.textContent = `Score: ${Global.getScore()}/${Global.getLimit()}`;
