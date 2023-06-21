@@ -7,11 +7,16 @@ export default function makeToast(message) {
 
     container.appendChild(child)
 
+    child.classList.add("active")
+
     setTimeout(() => {
         child.style.right = "100%"
         setTimeout(() => {
-            child.remove()
-        }, 200);
-    }, 1000);
+            child.classList.remove("active")
+            setTimeout(() => {
+                child.remove()
+            }, 200);
+        }, 500);
+    }, 1500);
 
 }

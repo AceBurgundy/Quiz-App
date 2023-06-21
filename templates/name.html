@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/name.js" type="module"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/name.css">
     <script>
         navigator.serviceWorker.register("../service-worker.js")
     </script>
     <link rel="manifest" href="../manifest.json" />
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/name.css">
     <title>QuizeME</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
 
     <div id="name-prompt" class="page">
         <input type="text" id="name-panel__input" placeholder="What your name?" required>
-        <button id="name-panel__submit-name">Proceed</button>
+        <div id="name-panel__submit-name">Proceed</div>
     </div>
 
 </body>

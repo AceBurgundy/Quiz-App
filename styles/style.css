@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('./notifications.css');
+@import url('./notification.css');
 
 * {
     overflow: hidden;
@@ -52,7 +52,6 @@ body {
     height: 100vh;
     position: fixed;
     background-color: var(--background);
-    transition: transform 200ms ease;
     transform: translateY(100%);
 }
 

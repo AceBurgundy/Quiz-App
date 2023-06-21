@@ -3,13 +3,8 @@ import Game from "./helpers/events.js";
 import redirect from "./helpers/redirect.js";
 
 const element = (element) => document.querySelector(element);
-window.onload = () => {
 
-  if (Global.getPlayerName() === "") {
-    window.location.href = "name.html"
-    return
-  }
- 
+window.onload = () => { 
   element("#menu-panel").style.transform = "translateY(0%)"
 }
 
@@ -38,6 +33,8 @@ function menuPanelChild(props) {
       </div>
       <div id="menu-panel__buttons-container">
         <button id="menu-panel__buttons-start" class="button-primary">${button}</button>
+        <div id="menu-panel__buttons-instructions" class="button-primary">Instructions</div>
+        <div id="menu-panel__buttons-show-players" class="button-primary">Leaderboards</div>
         <button id="menu-panel__buttons-settings" class="button-primary">Settings</button>
         <button id="menu-panel__buttons-quit" class="button-primary">Quit</button>
       </div>
@@ -74,11 +71,11 @@ function handleOrientationChange() {
 
         fitText(element("#menu-panel__game-title-description"), 2.5);
         fitText(element("#menu-panel__buttons-start"), 0.7);
-        [...menuButtonsContainer].forEach((child) => fitText(child, 0.9));
+        [...menuButtonsContainer].forEach((child) => fitText(child, 1.1));
         [...settingsContainer].forEach((child) => fitText(child, 0.9));
         fitText(element("#menu-panel__score-data"), 2.5);
     } else {
-        [...menuButtonsContainer].forEach((child) => fitText(child, 0.5));
+        [...menuButtonsContainer].forEach((child) => fitText(child, 0.9));
         [...settingsContainer].forEach((child) => fitText(child, 0.9));
     }
 }
@@ -118,3 +115,40 @@ Game.click("menu-panel__buttons-settings", () => {
 Game.click("menu-panel__buttons-quit", () => {
     redirect("menu-panel", "../index.html");
 });
+
+const gameCover = document.getElementById("players-cover")
+const playerContainer = document.getElementById("players")
+
+Game.click("menu-panel__buttons-show-players", () => {
+  gameCover.classList.add("active");
+
+  fetch("http://127.0.0.1:5000/get_players", {
+                method: "GET"
+            })
+			.then(response => response.json())
+			.then(data => {
+
+				if (data.status === "success") {
+          data.players.forEach(data => {
+            playerContainer.innerHTML += `
+            <li class="player-item">
+              <p class="player-name">Player: ${data.name}</p> 
+              <p class="player-score">Score: ${data.score}</p>
+            </li>`
+          })
+        }
+			})
+});
+
+Game.click("player-x-icon", () => {
+  gameCover.classList.remove("active");
+  playerContainer.innerHTML = ""
+});
+
+Game.click("menu-panel__buttons-instructions", () => {
+  document.getElementById("game-instructions-box").classList.add("show")
+})
+
+Game.click("panel-x-icon", () => {
+  document.getElementById("game-instructions-box").classList.add("hide")
+})

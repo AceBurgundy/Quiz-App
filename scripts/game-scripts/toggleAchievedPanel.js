@@ -1,7 +1,8 @@
 import Global from "../global.js";
 import runGame from "./engine.js";
-import redirect from "../helpers/redirect.js"
 import Game from "../helpers/events.js";
+import makeToast from "../helpers/toast.js";
+import redirect from "../helpers/redirect.js";
 
 export default function showPassedPanel(congratulations = false) {
 
@@ -29,11 +30,28 @@ export default function showPassedPanel(congratulations = false) {
         scorePlaceholder.textContent = `Score: ${Global.getScore()}/${Global.getLimit()}`;
 
         stopButton.onclick = function() {
+
+            fetch("http://127.0.0.1:5000/update_score", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    redirect("game-panel", "menu.html")
+                    makeToast(data.message);
+                } else {
+                    makeToast(data.message);
+                }
+            })
+
             scorePlaceholder.textContent = ""
             panelText.textContent = ""
             panel.classList.remove("active");
-            panelBackground.classList.remove("active")
-            redirect("game-panel", "menu.html")
+            panelBackground.classList.remove("active")            
             nextButton.style.display = "block"
         };
 
@@ -50,9 +68,44 @@ export default function showPassedPanel(congratulations = false) {
             Global.setCurrentIndex(Global.getScore())
             Global.saveData()
             showPassedPanel(true);
+
+            fetch("http://127.0.0.1:5000/update_score", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    makeToast(data.message);
+                    redirect("game-panel", "menu.html")
+                } else {
+                    makeToast(data.message);
+                }
+            })
         };
 
-        nextButton.onclick = function() {
+        nextButton.onclick = function(event) {
+
+            event.preventDefault()
+
+            fetch("http://127.0.0.1:5000/update_score", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    makeToast(data.message);
+                } else {
+                    makeToast(data.message);
+                }
+            })
             panel.classList.remove("active");
             panelBackground.classList.remove("active")
             runGame();
@@ -64,5 +117,22 @@ export default function showPassedPanel(congratulations = false) {
 Game.click("menu-prompt__yes", () => {
     Global.setCurrentIndex(Global.getScore())
     Global.saveData()
-    redirect("game-panel", "menu.html")
+
+    fetch("http://127.0.0.1:5000/update_score", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            redirect("game-panel", "menu.html")
+            makeToast(data.message);
+        } else {
+            makeToast(data.message);
+        }
+    })
+
 })

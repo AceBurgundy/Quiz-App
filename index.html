@@ -6,16 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./scripts/index.js" type="module"></script>
-  <script>
-    navigator.serviceWorker.register("./service-worker.js")
-  </script>
-  <link rel="manifest" href="./manifest.json" />
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/title.css">
+  <script>
+    navigator.serviceWorker.register("../service-worker.js")
+  </script>
+  <link rel="manifest" href="../manifest.json" />
+
   <title>QuizeMe</title>
 </head>
 
 <body>
+
+  <ul id="flashes">
+  </ul>
 
   <div id="title-panel" class="page">
     <p id="title-panel__title">QuizeME</p>

@@ -7,16 +7,19 @@
     <script src="../scripts/helpers/fittext.js"></script>
     <script src="../scripts/game.js" type="module"></script>
     <script src="../audio.js" defer></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/game.css">
+    <link rel="stylesheet" href="../styles/word_correct.css">
     <script>
         navigator.serviceWorker.register("../service-worker.js")
     </script>
     <link rel="manifest" href="../manifest.json" />
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/game.css">
-    <link rel="stylesheet" href="../styles/word_correct.css">
     <title>QuizMe</title>
 </head>
 <body>
+
+    <ul id="flashes">
+    </ul>
 
     <div id="background-cover"></div>
 

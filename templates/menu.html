@@ -7,17 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/menu.js" type="module"></script>
     <script src="../scripts/helpers/fittext.js"></script>
-    <script>
-      navigator.serviceWorker.register("../service-worker.js")
-    </script>
-    <link rel="manifest" href="../manifest.json" />
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/menu.css">
+    <script>
+        navigator.serviceWorker.register("../service-worker.js")
+    </script>
+    <link rel="manifest" href="../manifest.json" />
     <title>QuizMe</title>
 </head>
 
 <body>
 
+    <ul id="flashes">
+    </ul>
+  
     <div id="menu-panel" class="page">
 
         <div id="menu-panel__top">
@@ -49,8 +52,26 @@
         </div>
     </div>
 
+    <div id="players-cover">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="player-x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+        <ul id="players">
+        </ul>
+    </div>
 
-
+    <div id="game-instructions-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="panel-x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+        <ul id="game-instructions">
+          <p>Game Instructions</p>
+          <li class="game-instructions__item">- Rearrange the random words by clicking on each letter of the randomized characters.</li>
+          <li class="game-instructions__item">- The clicked letters will be placed in an array.</li>
+          <li class="game-instructions__item">- If the letters in the array match the word, you get a point.</li>
+          <li class="game-instructions__item">- You have the option to reshuffle all words by clicking on the reshuffle button.</li>
+          <li class="game-instructions__item">- You can read the description of the game by clicking on the guide button.</li>
+          <li class="game-instructions__item">- You can close the game or skip a word by clicking on the respective buttons.</li>
+          <li class="game-instructions__item">- Have fun playing quizMe!</li>
+        </ul>
+      </div>
+  
 </body>
 
 </html>
