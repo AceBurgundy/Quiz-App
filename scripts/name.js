@@ -15,7 +15,7 @@ Game.click("name-panel__submit-name", (e) => {
     const nameInput = document.getElementById("name-panel__input").value;
 
     if (nameInput !== "") {
-        fetch("http://127.0.0.1:5000/add_player", {
+        fetch("http://quizeme.pythonanywhere.com/add_player", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

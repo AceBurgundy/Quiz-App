@@ -76,7 +76,7 @@ const Global = (() => {
     const resetData = () => {
         if (navigator.onLine) {
 
-            fetch("http://127.0.0.1:5000/delete_player", {
+            fetch("http://quizeme.pythonanywhere.com/delete_player", {
                 method: "POST",
 				headers: {
                     "Content-Type": "application/json",

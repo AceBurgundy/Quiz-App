@@ -31,7 +31,7 @@ export default function showPassedPanel(congratulations = false) {
 
         stopButton.onclick = function() {
 
-            fetch("http://127.0.0.1:5000/update_score", {
+            fetch("http://quizeme.pythonanywhere.com/update_score", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function showPassedPanel(congratulations = false) {
             Global.saveData()
             showPassedPanel(true);
 
-            fetch("http://127.0.0.1:5000/update_score", {
+            fetch("http://quizeme.pythonanywhere.com/update_score", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export default function showPassedPanel(congratulations = false) {
 
             event.preventDefault()
 
-            fetch("http://127.0.0.1:5000/update_score", {
+            fetch("http://quizeme.pythonanywhere.com/update_score", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -118,7 +118,7 @@ Game.click("menu-prompt__yes", () => {
     Global.setCurrentIndex(Global.getScore())
     Global.saveData()
 
-    fetch("http://127.0.0.1:5000/update_score", {
+    fetch("http://quizeme.pythonanywhere.com/update_score", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
