@@ -122,7 +122,7 @@ const playerContainer = document.getElementById("players")
 Game.click("menu-panel__buttons-show-players", () => {
   gameCover.classList.add("active");
 
-  fetch("http://quizeme.pythonanywhere.com/get_players", {
+  fetch("https://quizeme.pythonanywhere.com/get_players", {
                 method: "GET"
             })
 			.then(response => response.json())
