@@ -117,22 +117,5 @@ export default function showPassedPanel(congratulations = false) {
 Game.click("menu-prompt__yes", () => {
     Global.setCurrentIndex(Global.getScore())
     Global.saveData()
-
-    fetch("https://quizeme.pythonanywhere.com/update_score", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            redirect("game-panel", "menu.html")
-            makeToast(data.message);
-        } else {
-            makeToast(data.message);
-        }
-    })
-
+    redirect("game-panel", "menu.html")
 })
