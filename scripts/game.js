@@ -6,6 +6,8 @@ window.onload = () => {
     document.getElementById("game-panel").style.transform = "translateY(0%)"
 }
 
+document.getElementById("player-name").textContent = Global.getPlayerName()
+
 // skip button
 Game.click("game-panel__navigation-skip", () => {
     if (Global.getCurrentIndex() <= Global.getLimit()) {

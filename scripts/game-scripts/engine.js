@@ -19,7 +19,7 @@ export default function runGame() {
             Global.setLimit(quizData.length);
             
             const currentWord = quizData[Global.getCurrentIndex()]
-
+            Global.saveData()
             const word = currentWord;
             const hints = [...currentWord.hints];
 

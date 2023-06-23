@@ -13,10 +13,12 @@ export default function showPassedPanel(congratulations = false) {
     const nextButton = document.getElementById("achieved-panel__buttons-next");
     const scorePlaceholder = document.getElementById("achieved-panel__text-score");
 
-    Global.incrementIndex();
+    Global.incrementIndex()
+    Global.incrementScore()
     panel.classList.add("active");
     panelBackground.classList.add("active");
     Global.saveData();
+    Global.retrieveScore()
 
     if (Global.getScore() == Global.getLimit() || congratulations) {
 
@@ -54,22 +56,21 @@ export default function showPassedPanel(congratulations = false) {
 
         nextButton.onclick = function(event) {
 
-            event.preventDefault();
             makeToast("Updating Score");
             fetch("https://quizeme.pythonanywhere.com/update_score", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name: Global.getPlayerName(), score: Global.getScore() }),
+                body: JSON.stringify({ name: Global.getPlayerName()}),
             })
             .then(response => response.json())
             .then(data => {
                 if (data.status === "success") {
                     panel.classList.remove("active");
                     panelBackground.classList.remove("active");
-                    runGame();
                     makeToast(data.message);
+                    runGame();
                 } else {
                     makeToast(data.message);
                 }
@@ -82,7 +83,5 @@ export default function showPassedPanel(congratulations = false) {
 }
 
 Game.click("menu-prompt__yes", () => {
-    Global.setCurrentIndex(Global.getScore());
-    Global.saveData();
     redirect("game-panel", "menu.html");
 });

@@ -49,7 +49,6 @@ export default function addScrambledLetters(wordObject, quizHints) {
 
                     if (addedWord.length === currentWord.length) {
                         if (currentWord === addedWord.join("")) {
-                            Global.incrementScore();
                             toggleAchievedPanel();
                             Global.saveData();
                         } else {
@@ -93,7 +92,6 @@ export default function addScrambledLetters(wordObject, quizHints) {
 
         letterBox.addEventListener("click", () => {
             playSound("click");
-            console.log("yes");
             addLetter(letter, letterBox);
             disableKeyUp(); // Disable the keyup event listener after a letter is clicked
         });
@@ -112,7 +110,6 @@ export default function addScrambledLetters(wordObject, quizHints) {
 
                     if (addedWord.length === currentWord.length) {
                         if (currentWord === addedWord.join("")) {
-                            Global.incrementScore();
                             toggleAchievedPanel();
                             Global.saveData();
                         } else {

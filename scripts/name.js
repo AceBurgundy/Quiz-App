@@ -3,7 +3,7 @@ import makeToast from "./helpers/toast.js";
 import Game from "./helpers/events.js";
 import Global from "../scripts/global.js";
 
-if (Global.getPlayerName() !== "") {
+if (Global.getPlayerName() !== "" && Global.getPlayerName() !== undefined) {
     redirect("name-prompt", "menu.html");
 }
 
@@ -36,7 +36,9 @@ Game.click("name-panel__submit-name", (e) => {
                 makeToast(data.message);
                 Global.setPlayerName(nameInput);
                 Global.saveData();
-                redirect("name-prompt", "menu.html")
+                setTimeout(() => {
+                    redirect("name-prompt", "menu.html")
+                }, 5000);
             } else {
                 makeToast(data.message);
             }

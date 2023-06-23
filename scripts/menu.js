@@ -10,8 +10,7 @@ window.onload = () => {
 };
 
 const playerName = Global.getPlayerName();
-
-if (playerName == "") {
+if (playerName == "" || playerName == undefined) {
     redirect("menu-panel", "name.html")
 }
 
@@ -206,14 +205,12 @@ Game.click("delete-players-form__submit", () => {
     .then((data) => {
         if (data.status === "success") {
             makeToast(data.message)
-            Global.resetData(false)
-            setTimeout(() => {
-                redirect("menu-panel", "name.html")
-            }, 6000);
         } else {
             makeToast(data.message);
         }
     });
+    Global.resetData()
+    redirect("menu-panel", "name.html")
 });
 
 Game.click("menu-panel__buttons-instructions", () => {

@@ -1,4 +1,3 @@
-import redirect from "./helpers/redirect.js";
 import makeToast from "./helpers/toast.js";
 
 const Global = (() => {
@@ -37,14 +36,12 @@ const Global = (() => {
         if (playerName === "") {
             const savedData = localStorage.getItem("userData");
             const localData = JSON.parse(savedData);
-            
+
             if (localData === null) {
                 return playerName
             }
-            
-            localData.playerName === "" ? 
-                playerName :
-                playerName = localData.playerName 
+
+            playerName = localData.name 
 
             return playerName
         } else {
@@ -73,7 +70,7 @@ const Global = (() => {
 
         const data = {
             score: score.toString(),
-            playerName: playerName,
+            name: playerName,
             lastStopped: currentIndex,
             numberOfItems: limit,
         };
@@ -95,7 +92,7 @@ const Global = (() => {
                 makeToast("Loading from offline data")
                 score = parseInt(localData.score);
                 currentIndex = parseInt(localData.lastStopped);
-                playerName = localData.playerName;
+                playerName = localData.name;
                 limit = localData.numberOfItems;
 
             } else {
@@ -105,24 +102,24 @@ const Global = (() => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ name: localData.playerName })
+                    body: JSON.stringify({ name: localData.name })
                 })
                 .then(response => response.json())
                 .then(data => {
 
                     if (data.status === "success") {
-                    
-                        score = parseInt(data.score);
+                        
+                        score = parseInt(data.message.score);
                         currentIndex = parseInt(localData.lastStopped);
-                        playerName = data.player;
+                        playerName = data.message.player;
                         limit = localData.numberOfItems;
-                    
+
                     } else {
-                        makeToast(data.message);
+                        window.location.href = "index.html"
+                        resetData()
                     }
                 })
             }
-
 
         }
     };
