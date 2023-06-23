@@ -31,7 +31,27 @@ const Global = (() => {
         }
     };
 
-    const getPlayerName = () => playerName;
+    const getPlayerName = () => {
+
+        // return playerName
+        if (playerName === "") {
+            const savedData = localStorage.getItem("userData");
+            const localData = JSON.parse(savedData);
+            
+            if (localData === null) {
+                return playerName
+            }
+            
+            localData.playerName === "" ? 
+                playerName :
+                playerName = localData.playerName 
+
+            return playerName
+        } else {
+            return playerName
+        }
+    
+    };
 
     const getLimit = () => limit;
 
@@ -62,21 +82,55 @@ const Global = (() => {
     };
 
     const retrieveScore = () => {
+
         const savedData = localStorage.getItem("userData");
 
         if (savedData) {
-            const data = JSON.parse(savedData);
-            score = parseInt(data.score);
-            currentIndex = parseInt(data.lastStopped);
-            playerName = data.playerName;
-            limit = data.numberOfItems;
+            const localData = JSON.parse(savedData);
+
+            if (!navigator.onLine) {
+
+                makeToast("Cannot retrieve online data")
+                makeToast("Score might not be saved")
+                makeToast("Loading from offline data")
+                score = parseInt(localData.score);
+                currentIndex = parseInt(localData.lastStopped);
+                playerName = localData.playerName;
+                limit = localData.numberOfItems;
+
+            } else {
+
+                fetch("http://127.0.0.1:5000/get_player", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ name: localData.playerName })
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.status === "success") {
+                    
+                        score = parseInt(data.score);
+                        currentIndex = parseInt(localData.lastStopped);
+                        playerName = data.playerName;
+                        limit = localData.numberOfItems;
+                    
+                    } else {
+                        makeToast(data.message);
+                    }
+                })
+            }
+
+
         }
     };
 
-    const resetData = () => {
-        if (navigator.onLine) {
+    const resetData = (goPost = true) => {
 
-            fetch("https://quizeme.pythonanywhere.com/delete_player", {
+        if (goPost) {
+            fetch("http://127.0.0.1:5000/delete_player", {
                 method: "POST",
 				headers: {
                     "Content-Type": "application/json",
@@ -92,15 +146,13 @@ const Global = (() => {
 					makeToast(data.message);
 				}
 			})
-
-			playerName = "";
-            score = 0;
-            currentIndex = 0;
-            localStorage.removeItem("userData");
-
-        } else {
-            makeToast("Must be online");
         }
+
+        playerName = "";
+        score = 0;
+        currentIndex = 0;
+        localStorage.removeItem("userData");
+
     };
 
     const initialize = () => {
