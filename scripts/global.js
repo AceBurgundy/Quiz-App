@@ -114,7 +114,7 @@ const Global = (() => {
                     
                         score = parseInt(data.score);
                         currentIndex = parseInt(localData.lastStopped);
-                        playerName = data.playerName;
+                        playerName = data.player;
                         limit = localData.numberOfItems;
                     
                     } else {
