@@ -12,27 +12,35 @@ window.onload = () => {
 };
 
 Game.click("name-panel__submit-name", (e) => {
-    const nameInput = document.getElementById("name-panel__input").value;
+    
+    if (!navigator.onLine) {
+        makeToast("No internet connection")
+        return
+    }
 
+    const nameInput = document.getElementById("name-panel__input").value;
+    
+    makeToast("Adding Player")
+    
     if (nameInput !== "") {
-        fetch("https://quizeme.pythonanywhere.com/add_player", {
+        fetch("http://127.0.0.1:5000/add_player", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ name: nameInput }),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.status === "success") {
-                    makeToast(data.message);
-                    Global.setPlayerName(nameInput);
-                    Global.saveData();
-                    redirect("name-prompt", "menu.html");
-                } else {
-                    makeToast(data.message);
-                }
-            });
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === "success") {
+                makeToast(data.message);
+                Global.setPlayerName(nameInput);
+                Global.saveData();
+                redirect("name-prompt", "menu.html")
+            } else {
+                makeToast(data.message);
+            }
+        });
     } else {
         makeToast("Name required")
     }
