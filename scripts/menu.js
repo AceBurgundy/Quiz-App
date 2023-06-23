@@ -147,7 +147,7 @@ Game.click("menu-panel__buttons-show-players", () => {
     element("#players").classList.add("show");
 
     playerContainer.innerHTML += `<p>Loading Players</p>`;
-    fetch("http://127.0.0.1:5000/get_players", {
+    fetch("https://quizeme.pythonanywhere.com/get_players", {
         method: "GET",
     })
     .then((response) => response.json())
@@ -195,7 +195,7 @@ Game.click("delete-players-form__submit", () => {
         return
     }
     
-	fetch("http://127.0.0.1:5000/delete_players", {
+	fetch("https://quizeme.pythonanywhere.com/delete_players", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

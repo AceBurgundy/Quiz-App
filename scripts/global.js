@@ -100,7 +100,7 @@ const Global = (() => {
 
             } else {
 
-                fetch("http://127.0.0.1:5000/get_player", {
+                fetch("https://quizeme.pythonanywhere.com/get_player", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -130,7 +130,7 @@ const Global = (() => {
     const resetData = (goPost = true) => {
 
         if (goPost) {
-            fetch("http://127.0.0.1:5000/delete_player", {
+            fetch("https://quizeme.pythonanywhere.com/delete_player", {
                 method: "POST",
 				headers: {
                     "Content-Type": "application/json",
