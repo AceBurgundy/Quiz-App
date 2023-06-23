@@ -14,59 +14,51 @@
 
 <body>
 
-    <ul id="flashes">
-    </ul>
-  
-    <div id="menu-panel" class="page">
+    <ul id="flashes"></ul>
 
-        <div id="menu-panel__top">
-            <div id="menu-panel__name-container">
-                <p id="menu-panel__name"></p>
-            </div>
-            <div id="menu-panel__game-title-section">
-                <p id="menu-panel__game-title">QuizMe</p>
-                <p id="menu-panel__game-title-description">
-                    A Computer Science Scrambled Word Challenge
-                </p>
-                <p id="menu-panel__score-data">
-                    Score:
-                    <span id="menu-panel__score"></span>/<span id="menu-panel__score-limit"></span>
-                </p>
-            </div>
-        </div>
-        <div id="menu-panel__buttons-container">
-            <button id="menu-panel__buttons-start" class="button-primary"></button>
-            <button id="menu-panel__buttons-settings" class="button-primary">Settings</button>
-            <button id="menu-panel__buttons-quit" class="button-primary">Quit</button>
-        </div>
+    <div id="extra-background-panel">
     </div>
 
-    <div id="background-cover">
+    <div id="background-panel">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
-        <div id="settings-container">
-            <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
+    </div>
+
+    <div id="menu-panel" class="page">
+    </div>
+
+    <form id="delete-players-form" class="bottom">
+        <div id="delete-players-form__close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="form-close-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
         </div>
+        <div id="delete-players-form__top">
+            <label for="">
+                Password
+            </label>
+            <input type="password" required name="password" id="password">
+        </div>
+        <div id="delete-players-form__submit" class="button-primary">Submit</div>
+    </form>
+
+    <!-- settings -->
+    <div id="settings" class="bottom">
+        <button id="menu-panel__buttons-clear" class="button-primary">Clear Leaderboards</button>
+        <button id="menu-panel__buttons-reset" class="button-primary">Reset</button>
     </div>
 
-    <div id="players-cover">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="player-x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
-        <ul id="players">
-        </ul>
+    <!-- leaderboards -->
+    <div id="players" class="bottom">
     </div>
 
-    <div id="game-instructions-box">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="panel-x-icon"><rect width="256" height="256" fill="none"></rect><line x1="200" x2="56" y1="56" y2="200" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" x2="56" y1="200" y2="56" stroke="#FBB635" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
-        <ul id="game-instructions">
-          <p>Game Instructions</p>
-          <li class="game-instructions__item">- Rearrange the random words by clicking on each letter of the randomized characters.</li>
-          <li class="game-instructions__item">- The clicked letters will be placed in an array.</li>
-          <li class="game-instructions__item">- If the letters in the array match the word, you get a point.</li>
-          <li class="game-instructions__item">- You have the option to reshuffle all words by clicking on the reshuffle button.</li>
-          <li class="game-instructions__item">- You can read the description of the game by clicking on the guide button.</li>
-          <li class="game-instructions__item">- You can close the game or skip a word by clicking on the respective buttons.</li>
-          <li class="game-instructions__item">- Have fun playing quizMe!</li>
-        </ul>
-      </div>
+    <ul id="game-instructions" class="bottom">
+        <p>Game Instructions</p>
+        <li class="game-instructions__item">- Rearrange the random words by clicking on each letter of the randomized characters.</li>
+        <li class="game-instructions__item">- The clicked letters will be placed in an array.</li>
+        <li class="game-instructions__item">- If the letters in the array match the word, you get a point.</li>
+        <li class="game-instructions__item">- You have the option to reshuffle all words by clicking on the reshuffle button.</li>
+        <li class="game-instructions__item">- You can read the description of the game by clicking on the guide button.</li>
+        <li class="game-instructions__item">- You can close the game or skip a word by clicking on the respective buttons.</li>
+        <li class="game-instructions__item">- Have fun playing quizMe!</li>
+    </ul>
   
 </body>
 
